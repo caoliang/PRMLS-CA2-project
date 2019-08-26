@@ -138,12 +138,13 @@ api_key = '563492ad6f917000010000015dee3b636ab44279b6f1edf055de1fe0'
 # instantiate PyPexels object
 py_pexels = PyPexels(api_key=api_key)
 
-search_target = 'domestic cat'
+#search_target = 'domestic cat'
+search_target = 'bird'
 # Each time only allow maximum 200 images to be downloaded
 total_images = 200
 
 # Existing downloaded image files
-exiting_num_images = 1400
+exiting_num_images = 1200
 
 print("{0} - Try to download {1} images for '{2}'".format(
         show_time(), total_images, search_target))
