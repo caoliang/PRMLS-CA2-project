@@ -8,8 +8,8 @@ Created on Sat Aug 24 20:07:32 2019
 
 from pypexels import PyPexels
 from urllib.error import HTTPError
-import requests
 from datetime import datetime
+import requests
 import time
 import os
 
