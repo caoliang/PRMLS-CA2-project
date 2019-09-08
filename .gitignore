@@ -9,3 +9,4 @@ dt_dog/
 public_bird/
 public_cat/
 public_dog/
+*.log
