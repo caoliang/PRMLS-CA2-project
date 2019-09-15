@@ -11,3 +11,5 @@ public_cat/
 public_dog/
 *.log
 data.h5
+ca2data.h5
+data128.h5
