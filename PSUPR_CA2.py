@@ -5,10 +5,11 @@ Created on Fri Sep 13 19:58:24 2019
 @author: Jacky
 """
 
+import pandas as pd
 import numpy as np
 import sklearn.metrics as metrics
 import matplotlib.pyplot as plt
-
+import h5py
 
 from tensorflow.keras.callbacks import ModelCheckpoint,CSVLogger,LearningRateScheduler
 from tensorflow.keras.models import Model
@@ -39,17 +40,19 @@ plt.rcParams['ytick.labelleft'] = False
 plt.rcParams['font.family']     = 'Arial'
 
 def read_data_set(h5_file='out.h5'):
+    data_map = { 'cat':0, 'bird':1, 'dog':2 }
+    
     with h5py.File(h5_file, 'r') as hf:
         X_train = hf['X_train'].value
         print('Read X_train: ', X_train.shape)        
         
-        y_train = hf['y_train'].value
+        y_train = pd.Series(hf['y_train']).map(data_map)
         print('Read y_train: ', y_train.shape)        
         
         X_test = hf['X_test'].value
         print('Read X_test: ', X_test.shape)        
         
-        y_test = hf['y_test'].value
+        y_test = pd.Series(hf['y_test']).map(data_map)
         print('Read y_test: ', y_test.shape)        
     
     return (X_train, y_train, X_test, y_test)
@@ -85,7 +88,7 @@ seed        = 42
 np.random.seed(seed)
 
 optmz       = optimizers.Adam(lr=0.001)
-modelname   = 'cifar10ResV1Cfg5'
+modelname   = 'PRMLS_CA2'
                             # define the deep learning model
 
 def resLyr(inputs,
