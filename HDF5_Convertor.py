@@ -17,7 +17,7 @@ from glob import glob
 
 def proc_images(img_path='dt_cat', img_name='cat', 
                 img_ext='png', out_file="data.h5",
-                start_index=1, img_label='cat'):
+                start_index=1, img_label=0):
     """
     Saves compressed, resized images as HDF5 datsets
     Returns
@@ -106,7 +106,7 @@ img_start_index=0
 img_end_index=0
 
 img_end_index = proc_images(img_path='dt_cat', img_name='cat', img_ext='jpg', 
-            out_file="data128.h5", start_index=img_start_index, img_label='cat')
+            out_file="data128.h5", start_index=img_start_index, img_label=0)
 print('----------------')
 print('start: {}, end: {}'.format(img_start_index, img_end_index))
 print('----------------')
@@ -114,14 +114,14 @@ print('----------------')
 img_start_index = img_end_index + 1
 
 img_end_index = proc_images(img_path='dt_bird', img_name='bird', img_ext='jpg', 
-            out_file="data128.h5", start_index=img_start_index, img_label='bird')
+            out_file="data128.h5", start_index=img_start_index, img_label=1)
 print('----------------')
 print('start: {}, end: {}'.format(img_start_index, img_end_index))
 print('----------------')
 
 img_start_index = img_end_index + 1
 img_end_index = proc_images(img_path='dt_dog', img_name='dog', img_ext='jpg', 
-            out_file="data128.h5", start_index=img_start_index, img_label='dog')
+            out_file="data128.h5", start_index=img_start_index, img_label=2)
 
 print('----------------')
 print('start: {}, end: {}'.format(img_start_index, img_end_index))
