@@ -12,12 +12,32 @@ import matplotlib.pyplot as plt
 import matplotlib.pylab as plb
 import numpy as np
 import os
+import sys
 import pandas as pd
 from glob import glob
+import shutil
+
+def read_unfit_img_id_list(id_list_file='img_id.txt'):
+    img_id_map = {}
+    img_id_list = None
+    with open(file=id_list_file, mode='r') as id_file:
+        img_id_list = id_file.readlines()
+    
+    if img_id_list is None:
+        print('img id list file is empty')
+        return img_id_map
+    
+    for img_id in img_id_list:
+        img_id = '' if img_id is None else img_id.strip()
+        if img_id != '':
+            img_id_map[img_id] = ''
+    
+    return img_id_map
 
 def proc_images(img_path='dt_cat', img_name='cat', 
                 img_ext='png', out_file="data.h5",
-                start_index=1, img_label=0):
+                start_index=1, img_label=0, unfit_id_map={},
+                unfit_img_folder='unfit_img'):
     """
     Saves compressed, resized images as HDF5 datsets
     Returns
@@ -47,6 +67,9 @@ def proc_images(img_path='dt_cat', img_name='cat',
     CHANNELS = 3
     SHAPE = (HEIGHT, WIDTH, CHANNELS)
     
+    if not os.path.exists(unfit_img_folder):
+        os.makedirs(unfit_img_folder)
+    
     with h5py.File(out_file, 'a') as hf:
         img_index = start_index
         img_end_index = start_index
@@ -58,6 +81,21 @@ def proc_images(img_path='dt_cat', img_name='cat',
             # Images
             image = cv2.imread(img)
             image = cv2.resize(image, (WIDTH,HEIGHT), interpolation=cv2.INTER_CUBIC)
+            
+            img_id = '{0}_{1}'.format(img_name, os.path.basename(img))
+            if img_id in unfit_id_map:
+                print('Unfit image: ', img_id)
+                
+                # Copy unfit image to unfit image folder
+                # adding exception handling
+                try:
+                    shutil.copy(img, unfit_img_folder)
+                except IOError as e:
+                    print("Unable to copy file. %s" % e)
+                except:
+                    print("Unexpected error:", sys.exc_info())
+                continue
+                
             Xset = hf.create_dataset(
                 name='X'+str(img_index),
                 data=image,
@@ -76,7 +114,10 @@ def proc_images(img_path='dt_cat', img_name='cat',
                 compression="gzip",
                 compression_opts=9)
             end=dt.datetime.now()
-            print("\r", i, ": ", (end-start).seconds, "seconds", end="")
+            
+            if img_index % 100 == 0:
+                print("\r", i, ": ", (end-start).seconds, "seconds", end="")
+            
             img_index += 1
             
         return img_end_index
@@ -102,11 +143,19 @@ def store_total_img_indexes(out_file='data.h5', start_index=0, end_index=0):
         print('Store end index', end_index)
 
 
+unfit_img_dir = 'unfit_img'
+unfit_img_list_map = read_unfit_img_id_list(id_list_file='unfit_list.txt')
+
 img_start_index=0
 img_end_index=0
 
+out_h5_file = 'data128.h5'
+if os.path.exists(out_h5_file):
+    os.remove(out_h5_file)
+
 img_end_index = proc_images(img_path='dt_cat', img_name='cat', img_ext='jpg', 
-            out_file="data128.h5", start_index=img_start_index, img_label=0)
+            out_file=out_h5_file, start_index=img_start_index, img_label=0,
+            unfit_id_map=unfit_img_list_map, unfit_img_folder=unfit_img_dir)
 print('----------------')
 print('start: {}, end: {}'.format(img_start_index, img_end_index))
 print('----------------')
@@ -114,27 +163,25 @@ print('----------------')
 img_start_index = img_end_index + 1
 
 img_end_index = proc_images(img_path='dt_bird', img_name='bird', img_ext='jpg', 
-            out_file="data128.h5", start_index=img_start_index, img_label=1)
+            out_file=out_h5_file, start_index=img_start_index, img_label=1,
+            unfit_id_map=unfit_img_list_map, unfit_img_folder=unfit_img_dir)
 print('----------------')
 print('start: {}, end: {}'.format(img_start_index, img_end_index))
 print('----------------')
 
 img_start_index = img_end_index + 1
 img_end_index = proc_images(img_path='dt_dog', img_name='dog', img_ext='jpg', 
-            out_file="data128.h5", start_index=img_start_index, img_label=2)
+            out_file=out_h5_file, start_index=img_start_index, img_label=2,
+            unfit_id_map=unfit_img_list_map, unfit_img_folder=unfit_img_dir)
 
 print('----------------')
 print('start: {}, end: {}'.format(img_start_index, img_end_index))
 print('----------------')
 
-store_total_img_indexes(out_file='data128.h5', start_index=0, end_index=img_end_index)
+store_total_img_indexes(out_file=out_h5_file, start_index=0, 
+                        end_index=img_end_index)
 
-#proc_images(img_path='dt_dog', img_name='dog', img_ext='jpg', out_file="data.h5")
-#proc_images(img_path='dt_bird', img_name='bird', img_ext='jpg', out_file="data.h5")
-
-#!ls -lha
-
-with h5py.File('data128.h5', 'r') as hf:
+with h5py.File(out_h5_file, 'r') as hf:
     plb.imshow(hf["X2383"])
     print(hf["y2383"].value)
     print(hf['start_index'].value)
