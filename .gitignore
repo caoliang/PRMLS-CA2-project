@@ -21,3 +21,4 @@ data128.h5
 test_results/20190921/PRMLS_CA2_74.54.hdf5
 optimize_img/PRMLS_CA2_74.54.hdf5
 optimize_img/img_128.h5
+unfit_img/
