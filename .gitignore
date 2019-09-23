@@ -23,3 +23,10 @@ test_results/20190921/PRMLS_CA2_74.54.hdf5
 optimize_img/PRMLS_CA2_74.54.hdf5
 optimize_img/img_128.h5
 unfit_img/
+test_results/20190923/PRMLS_CA2_Ensemble_NN_1_79.61.hdf5
+test_results/20190923/PRMLS_CA2_Ensemble_NN_2_79.61.hdf5
+test_results/20190923/PRMLS_CA2_Ensemble_NN_79.61.hdf5
+models/
+PRMLS_CA2.hdf5
+PRMLS_CA2_model.pdf
+PRMLS_CA2.csv

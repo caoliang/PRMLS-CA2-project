@@ -176,23 +176,13 @@ def createResNetV1_7631(inputShape=(128,128,3),
   return model
 
 # load models from file
-def load_all_models(n_models, model_name='PRMLS_CA2_Ensemble_NN',
-                    model_files=[], models_creation_func=[]):
+def load_all_models(n_models, model_name='PRMLS_CA2_Ensemble_NN'):
     all_models = list()
     for i in range(n_models):
         # define filename for this ensemble
-        if len(model_files) == n_models:
-            filename = model_files[i]
-        else:
-            filename = model_name + '_' + str(i + 1) + '.hdf5'
-        
-        # create model from model creation function list
-        if len(models_creation_func) == n_models:
-            model = models_creation_func[i]()
-        else:
-            model = createResNetV1_7631()
-        
-        # load model weight from file
+        filename = 'models/' + model_name + '_' + str(i + 1) + '.hdf5'
+        # load model from file
+        model = createResNetV1_7631()
         model.load_weights(filename)
         
         # add to list of members
@@ -233,26 +223,6 @@ def define_stacked_model(members, numClasses=3,
                   metrics=['accuracy'])
     return model
 
-# ----------------------------------
-# All files pathes are defined below
-# ----------------------------------
-# Number of models
-n_members = 2
-# Ensemble model name
-modelname   = 'PRMLS_CA2_Ensemble_NN'
-# Images data hdf5 file
-img_data_h5_file = 'ca2data.h5'
-# model hdf5 files
-model_files_list = [ modelname + '_1.hdf5', modelname + '_2.hdf5' ]
-# model creation function list
-model_create_list = [ createResNetV1_7631, createResNetV1_7631 ]
-# Ensemble model hdf5 file
-filepath        = modelname + ".hdf5"
-# Ensemble model training data csv file
-train_csv_path = modelname +'.csv'
-# Ensemble model diagram pdf file
-model_pdf_path = modelname+'_model.pdf'
-
                             # Set up 'ggplot' style
 plt.style.use('ggplot')     # if want to use the default style, set 'classic'
 plt.rcParams['ytick.right']     = True
@@ -261,7 +231,7 @@ plt.rcParams['ytick.left']      = False
 plt.rcParams['ytick.labelleft'] = False
 plt.rcParams['font.family']     = 'Arial'
 
-X_train_data, y_train_data, X_test_data, y_test_data = read_data_set(h5_file=img_data_h5_file)
+X_train_data, y_train_data, X_test_data, y_test_data = read_data_set(h5_file='ca2data.h5' )
 
 #data            = cifar10.load_data()
 (trDat, trLbl)  = X_train_data, y_train_data
@@ -292,13 +262,15 @@ seed        = 42
 np.random.seed(seed)
 
 optmz       = optimizers.Adam(lr=0.0001)
+modelname   = 'PRMLS_CA2_Ensemble_NN'
 
                             # define the deep learning model
 # load all models
-members = load_all_models(n_members, model_files=model_files_list,
-                          models_creation_func=model_create_list)
+n_members = 2
+members = load_all_models(n_members, model_name=modelname)
 print('Loaded %d models' % len(members))
 
+defined_model_img_path = 'models/' + modelname +'_defined.png'
 stacked_model = define_stacked_model(members, numClasses=num_classes,
                                      model_optimizer=optmz)
 print('Defined stacked model')
@@ -328,6 +300,7 @@ LRScheduler     = LearningRateScheduler(lrSchedule)
                             # Create checkpoint for the training
                             # This checkpoint performs model saving when
                             # an epoch gives highest testing accuracy
+filepath        = 'models/' + modelname + ".hdf5"
 checkpoint      = ModelCheckpoint(filepath, 
                                   monitor='val_acc', 
                                   verbose=0, 
@@ -335,7 +308,7 @@ checkpoint      = ModelCheckpoint(filepath,
                                   mode='max')
 
                             # Log the epoch detail into csv
-csv_logger      = CSVLogger(train_csv_path)
+csv_logger      = CSVLogger('models/' + modelname +'.csv')
 callbacks_list  = [checkpoint,csv_logger,LRScheduler]
 
                             # Fit the model
@@ -352,7 +325,7 @@ print("X_tsDat: ", np.array(X_tsDat).shape)
 stacked_model.fit(X_trDat, 
           trLbl, 
           validation_data=(X_tsDat, tsLbl), 
-          epochs=50, 
+          epochs=200, 
           verbose=1,
           batch_size=64,
           shuffle=True,
@@ -386,7 +359,7 @@ print("Best accuracy (on testing dataset): %.2f%%" % (testScores*100))
 print(metrics.classification_report(testout,predout,target_names=labelname,digits=4))
 print(confusion)
 
-records     = pd.read_csv(train_csv_path)
+records     = pd.read_csv('models/' + modelname +'.csv')
 plt.figure()
 plt.subplot(211)
 plt.plot(records['val_loss'])
@@ -405,7 +378,7 @@ plt.title('Accuracy',fontsize=12)
 plt.show()
 
 plot_model(stacked_model, 
-           to_file=model_pdf_path, 
+           to_file='models/' + modelname+'_model.pdf', 
            show_shapes=True, 
            show_layer_names=False,
            rankdir='TB')
