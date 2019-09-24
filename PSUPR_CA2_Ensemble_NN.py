@@ -302,6 +302,7 @@ print('Loaded %d models' % len(members))
 stacked_model = define_stacked_model(members, numClasses=num_classes,
                                      model_optimizer=optmz)
 print('Defined stacked model')
+stacked_model.summary()
 
                                 # Setup the models
 def lrSchedule(epoch):
