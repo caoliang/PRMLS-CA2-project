@@ -32,3 +32,4 @@ PRMLS_CA2_model.pdf
 PRMLS_CA2.csv
 test_results/20190924/PRMLS_CA2._75.07.hdf5
 test_results/20190924/PRMLS_CA2_7498.hdf5
+*.pyc
