@@ -36,3 +36,4 @@ PRMLS_CA2_Ensemble_NN_2.hdf5
 PRMLS_CA2_Ensemble_NN.hdf5
 PRMLS_CA2_Ensemble_NN.csv
 PRMLS_CA2_Ensemble_NN_1.hdf5
+*.pyc

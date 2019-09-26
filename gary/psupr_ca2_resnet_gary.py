@@ -1,0 +1,209 @@
+from gary.common_functions import *
+
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.layers import Conv2D
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import AveragePooling2D
+from tensorflow.keras.layers import add
+from tensorflow.keras.regularizers import l2
+from tensorflow.keras.utils import plot_model
+
+# define the deep learning model
+def resLyr(inputs, numFilters=16, kernelSz=3, strides=1, activation='relu',
+           batchNorm=True, convFirst=True, lyrName=None):
+    convLyr = Conv2D(numFilters,
+                  kernel_size=kernelSz,
+                  strides=strides,
+                  padding='same',
+                  kernel_initializer='he_normal',
+                  kernel_regularizer=l2(1e-4),
+                  name=lyrName+'_conv' if lyrName else None)
+    x = inputs
+    if convFirst:
+        x = convLyr(x)
+    if batchNorm:
+        x = BatchNormalization(name=lyrName+'_bn' if lyrName else None)(x)
+    if activation is not None:
+        x = Activation(activation,name=lyrName+'_'+activation if lyrName else None)(x)
+    else:
+        if batchNorm:
+            x = BatchNormalization(name=lyrName+'_bn' if lyrName else None)(x)
+        if activation is not None:
+            x = Activation(activation,name=lyrName+'_'+activation if lyrName else None)(x)
+            x = convLyr(x)
+
+    return x
+
+
+def resBlkV1(inputs,
+             numFilters=16,
+             numBlocks=7,
+             downsampleOnFirst=True,
+             names=None):
+  x = inputs
+  for run in range(0,numBlocks):
+    strides = 1
+    blkStr = str(run+1)
+    if downsampleOnFirst and run == 0:
+      strides = 2
+    y = resLyr(inputs=x,
+              numFilters=numFilters,
+              strides=strides,
+              lyrName=names+'_Blk'+blkStr+'_Res1' if names else None)
+    y = resLyr(inputs=y,
+              numFilters=numFilters,
+              activation=None,
+              lyrName=names+'_Blk'+blkStr+'_Res2' if names else None)
+    if downsampleOnFirst and run == 0:
+      x = resLyr(inputs=x,
+                numFilters = numFilters,
+                kernelSz=1,
+                strides=strides,
+                activation=None,
+                batchNorm=False,
+                lyrName=names+'_Blk'+blkStr+'_lin' if names else None)
+    x = add([x,y],
+           name=names+'_Blk'+blkStr+'_add' if names else None)
+    x  = Activation('relu',
+                   name=names+'_Blk'+blkStr+'_relu' if names else None)(x)
+     
+  return x
+    
+
+def createResNetV1(inputShape=(128,128,3),
+                   numClasses=3):
+  inputs = Input(shape=inputShape)
+  v = resLyr(inputs,
+            lyrName='Input')
+  
+  #v = Dropout(0.5)(v)
+  
+  v = resBlkV1(inputs=v,
+              numFilters=16,
+              numBlocks=7,
+              downsampleOnFirst=False,
+              names='Stg1')
+  
+  #v = Dropout(0.5)(v)
+  
+  v = resBlkV1(inputs=v,
+              numFilters=32,
+              numBlocks=7,
+              downsampleOnFirst=True,
+              names='Stg2')
+  
+  #v = Dropout(0.5)(v)
+  
+  v = resBlkV1(inputs=v,
+              numFilters=64,
+              numBlocks=7,
+              downsampleOnFirst=True,
+              names='Stg3')
+  
+  #v = Dropout(0.5)(v)
+  
+  v = resBlkV1(inputs=v,
+              numFilters=128,
+              numBlocks=7,
+              downsampleOnFirst=True,
+              names='Stg4')
+  
+  #v = Dropout(0.5)(v)
+  
+  v = AveragePooling2D(pool_size=8,
+                      name='AvgPool')(v)
+  
+  #v = Dropout(0.5)(v)
+  
+  v = Flatten()(v)
+  outputs = Dense(numClasses,
+                 activation='softmax',
+                 kernel_initializer='he_normal')(v)
+  model = Model(inputs=inputs,outputs=outputs)
+  model.compile(loss='categorical_crossentropy',
+               optimizer=optmz,
+               metrics=['accuracy'])
+    
+  return model
+
+
+                                # Setup the models
+model       = createResNetV1()  # This is meant for training
+modelGo     = createResNetV1()  # This is used for final testing
+
+model.summary()
+plot_model(model,
+           to_file=modelname+'_model.pdf',
+           show_shapes=True,
+           show_layer_names=False,
+           rankdir='TB')
+'''
+LRScheduler     = LearningRateScheduler(lrSchedule)
+
+# Create checkpoint for the training
+# This checkpoint performs model saving when
+# an epoch gives highest testing accuracy
+filepath = modelname + ".hdf5"
+checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=0, save_best_only=True, mode='max')
+
+# Log the epoch detail into csv
+csv_logger = CSVLogger(modelname +'.csv')
+callbacks_list = [checkpoint,csv_logger,LRScheduler]
+
+# Fit the model
+datagen = ImageDataGenerator(width_shift_range=0.1,
+                             height_shift_range=0.1,
+                             rotation_range=20,
+                             horizontal_flip=True,
+                             vertical_flip=False)
+
+model.fit_generator(datagen.flow(trDat, trLbl, batch_size=32),
+                    validation_data=(tsDat, tsLbl),
+                    epochs=200, #originally 200
+                    verbose=1,
+                    steps_per_epoch=len(trDat)/32,
+                    callbacks=callbacks_list)
+
+# Now the training is complete, we get another object to load the weights
+# compile it, so that we can do final evaluation on it
+modelGo.load_weights(filepath)
+modelGo.compile(loss='categorical_crossentropy', optimizer=optmz, metrics=['accuracy'])
+
+# Make classification on the test dataset
+predicts = modelGo.predict(tsDat)
+
+# Prepare the classification output for the classification report
+predout = np.argmax(predicts,axis=1)
+testout = np.argmax(tsLbl,axis=1)
+labelname = ['cat', 'bird', 'dog']
+
+# the labels for the classfication report
+testScores = metrics.accuracy_score(testout,predout)
+confusion = metrics.confusion_matrix(testout,predout)
+
+print("Best accuracy (on testing dataset): %.2f%%" % (testScores*100))
+print(metrics.classification_report(testout,predout,target_names=labelname,digits=4))
+print(confusion)
+
+records     = pd.read_csv(modelname +'.csv')
+plt.figure()
+plt.subplot(211)
+plt.plot(records['val_loss'])
+plt.plot(records['loss'])
+plt.yticks([0,0.20,0.40,0.60,0.80,1.00])
+plt.title('Loss value',fontsize=12)
+
+ax = plt.gca()
+ax.set_xticklabels([])
+
+plt.subplot(212)
+plt.plot(records['val_acc'])
+plt.plot(records['acc'])
+plt.yticks([0.6,0.7,0.8,0.9,1.0])
+plt.title('Accuracy',fontsize=12)
+plt.show()
+'''
