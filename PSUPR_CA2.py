@@ -21,6 +21,8 @@ from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.layers import Activation
 from tensorflow.keras.layers import AveragePooling2D
 from tensorflow.keras.layers import add
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.initializers import he_normal
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras import optimizers
@@ -40,19 +42,17 @@ plt.rcParams['ytick.labelleft'] = False
 plt.rcParams['font.family']     = 'Arial'
 
 def read_data_set(h5_file='out.h5'):
-    data_map = { 'cat':0, 'bird':1, 'dog':2 }
-    
     with h5py.File(h5_file, 'r') as hf:
         X_train = hf['X_train'].value
         print('Read X_train: ', X_train.shape)        
         
-        y_train = pd.Series(hf['y_train']).map(data_map)
+        y_train = hf['y_train'].value
         print('Read y_train: ', y_train.shape)        
         
         X_test = hf['X_test'].value
         print('Read X_test: ', X_test.shape)        
         
-        y_test = pd.Series(hf['y_test']).map(data_map)
+        y_test = hf['y_test'].value
         print('Read y_test: ', y_test.shape)        
     
     return (X_train, y_train, X_test, y_test)
@@ -87,7 +87,7 @@ num_classes = tsLbl.shape[1]
 seed        = 42
 np.random.seed(seed)
 
-optmz       = optimizers.Adam(lr=0.001)
+optmz       = optimizers.Adam(lr=0.0001)
 modelname   = 'PRMLS_CA2'
                             # define the deep learning model
 
@@ -103,7 +103,7 @@ def resLyr(inputs,
                   kernel_size=kernelSz,
                   strides=strides,
                   padding='same',
-                  kernel_initializer='he_normal',
+                  kernel_initializer=he_normal(33),
                   kernel_regularizer=l2(1e-4),
                   name=lyrName+'_conv' if lyrName else None)
   x = inputs
@@ -157,40 +157,68 @@ def resBlkV1(inputs,
      
   return x
     
-
 def createResNetV1(inputShape=(128,128,3),
-                   numClasses=3):
+                        numClasses=3):
   inputs = Input(shape=inputShape)
   v = resLyr(inputs,
             lyrName='Input')
+  
+  v = Dropout(0.2)(v)
+  
   v = resBlkV1(inputs=v,
               numFilters=16,
-              numBlocks=5,
+              numBlocks=7,
               downsampleOnFirst=False,
               names='Stg1')
+  
+  v = Dropout(0.2)(v)
+  
   v = resBlkV1(inputs=v,
               numFilters=32,
-              numBlocks=5,
+              numBlocks=7,
               downsampleOnFirst=True,
               names='Stg2')
+  
+  v = Dropout(0.2)(v)
+  
   v = resBlkV1(inputs=v,
               numFilters=64,
-              numBlocks=5,
+              numBlocks=7,
               downsampleOnFirst=True,
               names='Stg3')
+  
+  v = Dropout(0.2)(v)
+  
+  v = resBlkV1(inputs=v,
+              numFilters=128,
+              numBlocks=7,
+              downsampleOnFirst=True,
+              names='Stg4')
+  
+  v = Dropout(0.2)(v)
+  
   v = AveragePooling2D(pool_size=8,
                       name='AvgPool')(v)
+  
+  v = Dropout(0.2)(v)
+  
   v = Flatten()(v)
+
+  v = Dense(256, activation='relu',
+            kernel_initializer=he_normal(33))(v)
+
+  v = Dropout(0.2)(v)
+
   outputs = Dense(numClasses,
                  activation='softmax',
-                 kernel_initializer='he_normal')(v)
+                 kernel_initializer=he_normal(33))(v)
+  
   model = Model(inputs=inputs,outputs=outputs)
   model.compile(loss='categorical_crossentropy',
                optimizer=optmz,
                metrics=['accuracy'])
     
   return model
-
 
                                 # Setup the models
 model       = createResNetV1()  # This is meant for training
@@ -242,7 +270,7 @@ datagen = ImageDataGenerator(width_shift_range=0.1,
 
 model.fit_generator(datagen.flow(trDat, trLbl, batch_size=32),
                     validation_data=(tsDat, tsLbl),
-                    epochs=2, #originally 200
+                    epochs=200, #originally 200
                     verbose=1,
                     steps_per_epoch=len(trDat)/32,
                     callbacks=callbacks_list)
