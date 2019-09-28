@@ -37,3 +37,8 @@ PRMLS_CA2_Ensemble_NN.hdf5
 PRMLS_CA2_Ensemble_NN.csv
 PRMLS_CA2_Ensemble_NN_1.hdf5
 *.pyc
+test_results/20190928/PRMLS_CA2_7795.hdf5
+PRMLS_CA2_7795.hdf5
+PRMLS_CA2_7631.hdf5
+PSUPR_CA2_7631.ipynb
+PSUPR_CA2_7795.ipynb

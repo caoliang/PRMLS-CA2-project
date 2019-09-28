@@ -293,19 +293,17 @@ def define_stacked_model(members, numClasses=3,
 # All files pathes are defined below
 # ----------------------------------
 # Number of models
-n_members = 3
+n_members = 2
 # Ensemble model name
 modelname   = 'PRMLS_CA2_Ensemble_NN'
 # Images data hdf5 file
 img_data_h5_file = 'ca2data.h5'
 # model hdf5 files
 #model_files_list = [ modelname + '_1.hdf5', modelname + '_2.hdf5' ]
-model_files_list = [ 'PRMLS_CA2_7795.hdf5', 'PRMLS_CA2_7631.hdf5',
-                     'PRMLS_CA2_7795.hdf5' ]
+model_files_list = [ 'PRMLS_CA2_7795.hdf5', 'PRMLS_CA2_7795.hdf5' ]
 # model creation function list
 #model_create_list = [ createResNetV1_7631, createResNetV1_7631 ]
-model_create_list = [ createResNetV1_7795, createResNetV1_7631,
-                      createResNetV1_7795 ]
+model_create_list = [ createResNetV1_7795, createResNetV1_7795 ]
 # Ensemble model hdf5 file
 filepath        = modelname + ".hdf5"
 # Ensemble model training data csv file
