@@ -185,72 +185,6 @@ def createResNetV1_8039(inputShape=(128,128,3),
     
   return model
 
-def createResNetV1_7970(inputShape=(128,128,3),
-                        numClasses=3):
-  inputs = Input(shape=inputShape)
-  v = resLyr(inputs,
-             lyrName='Input')
-  
-  v = Dropout(0.2)(v)
-  
-  v = resBlkV1(inputs=v,
-              numFilters=16,
-              numBlocks=3,
-              downsampleOnFirst=False,
-              names='Stg1')
-  
-  v = Dropout(0.2)(v)
-  
-  v = resBlkV1(inputs=v,
-              numFilters=32,
-              numBlocks=3,
-              downsampleOnFirst=True,
-              names='Stg2')
-  
-  v = Dropout(0.2)(v)
-  
-  v = resBlkV1(inputs=v,
-              numFilters=64,
-              numBlocks=3,
-              downsampleOnFirst=True,
-              names='Stg3')
-  
-  v = Dropout(0.2)(v)
-  
-  v = resBlkV1(inputs=v,
-              numFilters=128,
-              numBlocks=3,
-              downsampleOnFirst=True,
-              names='Stg4')
-  
-  v = Dropout(0.2)(v)
-
-  v = resBlkV1(inputs=v,
-              numFilters=256,
-              numBlocks=3,
-              downsampleOnFirst=True,
-              names='Stg5')
-
-  v = Dropout(0.2)(v)
-  
-  v = AveragePooling2D(pool_size=8,
-                      name='AvgPool')(v)
-  
-  v = Dropout(0.2)(v)
-  
-  v = Flatten()(v)
-
-  outputs = Dense(numClasses,
-                 activation='softmax',
-                 kernel_initializer=he_normal(33))(v)
-  
-  model = Model(inputs=inputs,outputs=outputs)
-  model.compile(loss='categorical_crossentropy',
-               optimizer=optmz,
-               metrics=['accuracy'])
-    
-  return model
-
 def createResNetV1_7631(inputShape=(128,128,3),
                         numClasses=3):
   inputs = Input(shape=inputShape)
@@ -427,16 +361,16 @@ def define_stacked_model(members, numClasses=3,
 # Number of models
 n_members = 2
 # Ensemble model name
-modelname   = 'PRMLS_CA2_Ensemble_NN_8039_7970'
+modelname   = 'PRMLS_CA2_Ensemble_NN_8039'
 # Images data hdf5 file
 img_data_h5_file = 'ca2data.h5'
 # model hdf5 files
 #model_files_list = [ modelname + '_1.hdf5', modelname + '_2.hdf5' ]
 #model_files_list = [ 'PRMLS_CA2_7795.hdf5', 'PRMLS_CA2_7631.hdf5']
-model_files_list = [ 'PRMLS_CA2_8039.hdf5', 'PRMLS_CA2_7970.hdf5']
+model_files_list = [ 'PRMLS_CA2_8039.hdf5', 'PRMLS_CA2_8039.hdf5']
 # model creation function list
 #model_create_list = [ createResNetV1_7795, createResNetV1_7631 ]
-model_create_list = [ createResNetV1_8039, createResNetV1_7970 ]
+model_create_list = [ createResNetV1_8039, createResNetV1_8039 ]
 # Ensemble model hdf5 file
 filepath        = modelname + ".hdf5"
 # Ensemble model training data csv file

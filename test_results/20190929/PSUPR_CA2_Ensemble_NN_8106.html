@@ -1,0 +1,866 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'DejaVu Sans Mono'; font-size:10pt; font-weight:400; font-style:normal;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg2_Blk3_relu (Acti (None, 64, 64, 32)   0           ensemble_2_Stg2_Blk3_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_dropout_2 (Dropout)  (None, 64, 64, 32)   0           ensemble_1_Stg2_Blk3_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_dropout_9 (Dropout)  (None, 64, 64, 32)   0           ensemble_2_Stg2_Blk3_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk1_Res1_conv  (None, 32, 32, 64)   18496       ensemble_1_dropout_2[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk1_Res1_conv  (None, 32, 32, 64)   18496       ensemble_2_dropout_9[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk1_Res1_bn (B (None, 32, 32, 64)   256         ensemble_1_Stg3_Blk1_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk1_Res1_bn (B (None, 32, 32, 64)   256         ensemble_2_Stg3_Blk1_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk1_Res1_relu  (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk1_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk1_Res1_relu  (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk1_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk1_Res2_conv  (None, 32, 32, 64)   36928       ensemble_1_Stg3_Blk1_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk1_Res2_conv  (None, 32, 32, 64)   36928       ensemble_2_Stg3_Blk1_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk1_lin_conv ( (None, 32, 32, 64)   2112        ensemble_1_dropout_2[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk1_Res2_bn (B (None, 32, 32, 64)   256         ensemble_1_Stg3_Blk1_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk1_lin_conv ( (None, 32, 32, 64)   2112        ensemble_2_dropout_9[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk1_Res2_bn (B (None, 32, 32, 64)   256         ensemble_2_Stg3_Blk1_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk1_add (Add)  (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk1_lin_conv[0][</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg3_Blk1_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk1_add (Add)  (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk1_lin_conv[0][</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg3_Blk1_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk1_relu (Acti (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk1_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk1_relu (Acti (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk1_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk2_Res1_conv  (None, 32, 32, 64)   36928       ensemble_1_Stg3_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk2_Res1_conv  (None, 32, 32, 64)   36928       ensemble_2_Stg3_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk2_Res1_bn (B (None, 32, 32, 64)   256         ensemble_1_Stg3_Blk2_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk2_Res1_bn (B (None, 32, 32, 64)   256         ensemble_2_Stg3_Blk2_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk2_Res1_relu  (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk2_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk2_Res1_relu  (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk2_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk2_Res2_conv  (None, 32, 32, 64)   36928       ensemble_1_Stg3_Blk2_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk2_Res2_conv  (None, 32, 32, 64)   36928       ensemble_2_Stg3_Blk2_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk2_Res2_bn (B (None, 32, 32, 64)   256         ensemble_1_Stg3_Blk2_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk2_Res2_bn (B (None, 32, 32, 64)   256         ensemble_2_Stg3_Blk2_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk2_add (Add)  (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg3_Blk2_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk2_add (Add)  (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg3_Blk2_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk2_relu (Acti (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk2_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk2_relu (Acti (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk2_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk3_Res1_conv  (None, 32, 32, 64)   36928       ensemble_1_Stg3_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk3_Res1_conv  (None, 32, 32, 64)   36928       ensemble_2_Stg3_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk3_Res1_bn (B (None, 32, 32, 64)   256         ensemble_1_Stg3_Blk3_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk3_Res1_bn (B (None, 32, 32, 64)   256         ensemble_2_Stg3_Blk3_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk3_Res1_relu  (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk3_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk3_Res1_relu  (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk3_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk3_Res2_conv  (None, 32, 32, 64)   36928       ensemble_1_Stg3_Blk3_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk3_Res2_conv  (None, 32, 32, 64)   36928       ensemble_2_Stg3_Blk3_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk3_Res2_bn (B (None, 32, 32, 64)   256         ensemble_1_Stg3_Blk3_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk3_Res2_bn (B (None, 32, 32, 64)   256         ensemble_2_Stg3_Blk3_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk3_add (Add)  (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg3_Blk3_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk3_add (Add)  (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg3_Blk3_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg3_Blk3_relu (Acti (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk3_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg3_Blk3_relu (Acti (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk3_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_dropout_3 (Dropout)  (None, 32, 32, 64)   0           ensemble_1_Stg3_Blk3_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_dropout_10 (Dropout) (None, 32, 32, 64)   0           ensemble_2_Stg3_Blk3_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk1_Res1_conv  (None, 16, 16, 128)  73856       ensemble_1_dropout_3[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk1_Res1_conv  (None, 16, 16, 128)  73856       ensemble_2_dropout_10[0][0]      </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk1_Res1_bn (B (None, 16, 16, 128)  512         ensemble_1_Stg4_Blk1_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk1_Res1_bn (B (None, 16, 16, 128)  512         ensemble_2_Stg4_Blk1_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk1_Res1_relu  (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk1_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk1_Res1_relu  (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk1_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk1_Res2_conv  (None, 16, 16, 128)  147584      ensemble_1_Stg4_Blk1_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk1_Res2_conv  (None, 16, 16, 128)  147584      ensemble_2_Stg4_Blk1_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk1_lin_conv ( (None, 16, 16, 128)  8320        ensemble_1_dropout_3[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk1_Res2_bn (B (None, 16, 16, 128)  512         ensemble_1_Stg4_Blk1_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk1_lin_conv ( (None, 16, 16, 128)  8320        ensemble_2_dropout_10[0][0]      </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk1_Res2_bn (B (None, 16, 16, 128)  512         ensemble_2_Stg4_Blk1_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk1_add (Add)  (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk1_lin_conv[0][</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg4_Blk1_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk1_add (Add)  (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk1_lin_conv[0][</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg4_Blk1_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk1_relu (Acti (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk1_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk1_relu (Acti (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk1_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk2_Res1_conv  (None, 16, 16, 128)  147584      ensemble_1_Stg4_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk2_Res1_conv  (None, 16, 16, 128)  147584      ensemble_2_Stg4_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk2_Res1_bn (B (None, 16, 16, 128)  512         ensemble_1_Stg4_Blk2_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk2_Res1_bn (B (None, 16, 16, 128)  512         ensemble_2_Stg4_Blk2_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk2_Res1_relu  (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk2_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk2_Res1_relu  (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk2_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk2_Res2_conv  (None, 16, 16, 128)  147584      ensemble_1_Stg4_Blk2_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk2_Res2_conv  (None, 16, 16, 128)  147584      ensemble_2_Stg4_Blk2_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk2_Res2_bn (B (None, 16, 16, 128)  512         ensemble_1_Stg4_Blk2_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk2_Res2_bn (B (None, 16, 16, 128)  512         ensemble_2_Stg4_Blk2_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk2_add (Add)  (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg4_Blk2_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk2_add (Add)  (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg4_Blk2_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk2_relu (Acti (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk2_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk2_relu (Acti (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk2_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk3_Res1_conv  (None, 16, 16, 128)  147584      ensemble_1_Stg4_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk3_Res1_conv  (None, 16, 16, 128)  147584      ensemble_2_Stg4_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk3_Res1_bn (B (None, 16, 16, 128)  512         ensemble_1_Stg4_Blk3_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk3_Res1_bn (B (None, 16, 16, 128)  512         ensemble_2_Stg4_Blk3_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk3_Res1_relu  (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk3_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk3_Res1_relu  (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk3_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk3_Res2_conv  (None, 16, 16, 128)  147584      ensemble_1_Stg4_Blk3_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk3_Res2_conv  (None, 16, 16, 128)  147584      ensemble_2_Stg4_Blk3_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk3_Res2_bn (B (None, 16, 16, 128)  512         ensemble_1_Stg4_Blk3_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk3_Res2_bn (B (None, 16, 16, 128)  512         ensemble_2_Stg4_Blk3_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk3_add (Add)  (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg4_Blk3_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk3_add (Add)  (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg4_Blk3_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg4_Blk3_relu (Acti (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk3_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg4_Blk3_relu (Acti (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk3_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_dropout_4 (Dropout)  (None, 16, 16, 128)  0           ensemble_1_Stg4_Blk3_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_dropout_11 (Dropout) (None, 16, 16, 128)  0           ensemble_2_Stg4_Blk3_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk1_Res1_conv  (None, 8, 8, 256)    295168      ensemble_1_dropout_4[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk1_Res1_conv  (None, 8, 8, 256)    295168      ensemble_2_dropout_11[0][0]      </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk1_Res1_bn (B (None, 8, 8, 256)    1024        ensemble_1_Stg5_Blk1_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk1_Res1_bn (B (None, 8, 8, 256)    1024        ensemble_2_Stg5_Blk1_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk1_Res1_relu  (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk1_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk1_Res1_relu  (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk1_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk1_Res2_conv  (None, 8, 8, 256)    590080      ensemble_1_Stg5_Blk1_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk1_Res2_conv  (None, 8, 8, 256)    590080      ensemble_2_Stg5_Blk1_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk1_lin_conv ( (None, 8, 8, 256)    33024       ensemble_1_dropout_4[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk1_Res2_bn (B (None, 8, 8, 256)    1024        ensemble_1_Stg5_Blk1_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk1_lin_conv ( (None, 8, 8, 256)    33024       ensemble_2_dropout_11[0][0]      </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk1_Res2_bn (B (None, 8, 8, 256)    1024        ensemble_2_Stg5_Blk1_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk1_add (Add)  (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk1_lin_conv[0][</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg5_Blk1_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk1_add (Add)  (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk1_lin_conv[0][</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg5_Blk1_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk1_relu (Acti (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk1_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk1_relu (Acti (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk1_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk2_Res1_conv  (None, 8, 8, 256)    590080      ensemble_1_Stg5_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk2_Res1_conv  (None, 8, 8, 256)    590080      ensemble_2_Stg5_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk2_Res1_bn (B (None, 8, 8, 256)    1024        ensemble_1_Stg5_Blk2_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk2_Res1_bn (B (None, 8, 8, 256)    1024        ensemble_2_Stg5_Blk2_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk2_Res1_relu  (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk2_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk2_Res1_relu  (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk2_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk2_Res2_conv  (None, 8, 8, 256)    590080      ensemble_1_Stg5_Blk2_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk2_Res2_conv  (None, 8, 8, 256)    590080      ensemble_2_Stg5_Blk2_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk2_Res2_bn (B (None, 8, 8, 256)    1024        ensemble_1_Stg5_Blk2_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk2_Res2_bn (B (None, 8, 8, 256)    1024        ensemble_2_Stg5_Blk2_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk2_add (Add)  (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg5_Blk2_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk2_add (Add)  (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk1_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg5_Blk2_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk2_relu (Acti (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk2_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk2_relu (Acti (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk2_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk3_Res1_conv  (None, 8, 8, 256)    590080      ensemble_1_Stg5_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk3_Res1_conv  (None, 8, 8, 256)    590080      ensemble_2_Stg5_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk3_Res1_bn (B (None, 8, 8, 256)    1024        ensemble_1_Stg5_Blk3_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk3_Res1_bn (B (None, 8, 8, 256)    1024        ensemble_2_Stg5_Blk3_Res1_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk3_Res1_relu  (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk3_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk3_Res1_relu  (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk3_Res1_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk3_Res2_conv  (None, 8, 8, 256)    590080      ensemble_1_Stg5_Blk3_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk3_Res2_conv  (None, 8, 8, 256)    590080      ensemble_2_Stg5_Blk3_Res1_relu[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk3_Res2_bn (B (None, 8, 8, 256)    1024        ensemble_1_Stg5_Blk3_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk3_Res2_bn (B (None, 8, 8, 256)    1024        ensemble_2_Stg5_Blk3_Res2_conv[0]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk3_add (Add)  (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_1_Stg5_Blk3_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk3_add (Add)  (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk2_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_Stg5_Blk3_Res2_bn[0][0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_Stg5_Blk3_relu (Acti (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk3_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_Stg5_Blk3_relu (Acti (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk3_add[0][0]   </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_dropout_5 (Dropout)  (None, 8, 8, 256)    0           ensemble_1_Stg5_Blk3_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_dropout_12 (Dropout) (None, 8, 8, 256)    0           ensemble_2_Stg5_Blk3_relu[0][0]  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_AvgPool (AveragePool (None, 1, 1, 256)    0           ensemble_1_dropout_5[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_AvgPool (AveragePool (None, 1, 1, 256)    0           ensemble_2_dropout_12[0][0]      </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_dropout_6 (Dropout)  (None, 1, 1, 256)    0           ensemble_1_AvgPool[0][0]         </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_dropout_13 (Dropout) (None, 1, 1, 256)    0           ensemble_2_AvgPool[0][0]         </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_flatten (Flatten)    (None, 256)          0           ensemble_1_dropout_6[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_flatten_1 (Flatten)  (None, 256)          0           ensemble_2_dropout_13[0][0]      </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_1_dense (Dense)        (None, 3)            771         ensemble_1_flatten[0][0]         </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">ensemble_2_dense_1 (Dense)      (None, 3)            771         ensemble_2_flatten_1[0][0]       </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">concatenate (Concatenate)       (None, 6)            0           ensemble_1_dense[0][0]           </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                 ensemble_2_dense_1[0][0]         </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">dense_2 (Dense)                 (None, 6)            42          concatenate[0][0]                </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">dense_3 (Dense)                 (None, 3)            21          dense_2[0][0]                    </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">==================================================================================================</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Total params: 8,764,997</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Trainable params: 63</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Non-trainable params: 8,764,934</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">__________________________________________________________________________________________________</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">X_trDat:  (2, 2069, 128, 128, 3)</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">X_tsDat:  (2, 1035, 128, 128, 3)</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Train on 2069 samples, validate on 1035 samples</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">WARNING:tensorflow:From D:\App\Anaconda3\envs\prmls-ca2\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Instructions for updating:</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Use tf.cast instead.</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 1/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 94s 45ms/sample - loss: 1.3118 - acc: 0.6162 - val_loss: 1.3314 - val_acc: 0.5691</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 2/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 60s 29ms/sample - loss: 1.2114 - acc: 0.6307 - val_loss: 1.2662 - val_acc: 0.5633</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 3/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 60s 29ms/sample - loss: 1.1381 - acc: 0.6317 - val_loss: 1.2177 - val_acc: 0.5614</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 4/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 60s 29ms/sample - loss: 1.0765 - acc: 0.6375 - val_loss: 1.1783 - val_acc: 0.5614</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 5/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 60s 29ms/sample - loss: 1.0248 - acc: 0.6380 - val_loss: 1.1458 - val_acc: 0.5604</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 6/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 63s 30ms/sample - loss: 0.9783 - acc: 0.6365 - val_loss: 1.1186 - val_acc: 0.5749</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 7/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 63s 30ms/sample - loss: 0.9407 - acc: 0.7231 - val_loss: 1.0970 - val_acc: 0.7787</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 8/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 61s 30ms/sample - loss: 0.9052 - acc: 0.8772 - val_loss: 1.0766 - val_acc: 0.7855</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 9/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 62s 30ms/sample - loss: 0.8778 - acc: 0.8966 - val_loss: 1.0594 - val_acc: 0.7884</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 10/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 61s 30ms/sample - loss: 0.8453 - acc: 0.8980 - val_loss: 1.0440 - val_acc: 0.7923</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 11/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 62s 30ms/sample - loss: 0.8160 - acc: 0.9111 - val_loss: 1.0295 - val_acc: 0.8000</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 12/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 60s 29ms/sample - loss: 0.8016 - acc: 0.9101 - val_loss: 1.0166 - val_acc: 0.7990</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 13/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 63s 30ms/sample - loss: 0.7796 - acc: 0.9072 - val_loss: 1.0047 - val_acc: 0.8039</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 14/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 62s 30ms/sample - loss: 0.7555 - acc: 0.9164 - val_loss: 0.9963 - val_acc: 0.8048</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 15/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 62s 30ms/sample - loss: 0.7302 - acc: 0.9178 - val_loss: 0.9873 - val_acc: 0.8077</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 16/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 26s 13ms/sample - loss: 0.7199 - acc: 0.9198 - val_loss: 0.9839 - val_acc: 0.8058</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 17/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.7021 - acc: 0.9222 - val_loss: 0.9799 - val_acc: 0.8077</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 18/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 14s 7ms/sample - loss: 0.6989 - acc: 0.9130 - val_loss: 0.9770 - val_acc: 0.8097</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 19/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6816 - acc: 0.9193 - val_loss: 0.9764 - val_acc: 0.8097</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 20/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6630 - acc: 0.9217 - val_loss: 0.9794 - val_acc: 0.8077</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 21/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6597 - acc: 0.9265 - val_loss: 0.9832 - val_acc: 0.8077</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 22/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6581 - acc: 0.9140 - val_loss: 0.9843 - val_acc: 0.8077</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 23/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6534 - acc: 0.9203 - val_loss: 0.9872 - val_acc: 0.8087</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 24/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 14s 7ms/sample - loss: 0.6456 - acc: 0.9193 - val_loss: 0.9898 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 25/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 14s 7ms/sample - loss: 0.6365 - acc: 0.9174 - val_loss: 0.9935 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 26/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6515 - acc: 0.9227 - val_loss: 0.9975 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 27/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6419 - acc: 0.9164 - val_loss: 0.9999 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 28/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6255 - acc: 0.9227 - val_loss: 1.0032 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 29/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6407 - acc: 0.9241 - val_loss: 1.0079 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 30/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6268 - acc: 0.9232 - val_loss: 1.0128 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 31/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6347 - acc: 0.9125 - val_loss: 1.0161 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 32/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6304 - acc: 0.9222 - val_loss: 1.0209 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 33/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6313 - acc: 0.9222 - val_loss: 1.0192 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 34/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6309 - acc: 0.9246 - val_loss: 1.0203 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 35/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6176 - acc: 0.9232 - val_loss: 1.0238 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 36/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6237 - acc: 0.9265 - val_loss: 1.0280 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 37/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6330 - acc: 0.9203 - val_loss: 1.0294 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 38/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6255 - acc: 0.9207 - val_loss: 1.0311 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 39/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6363 - acc: 0.9164 - val_loss: 1.0353 - val_acc: 0.8097</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 40/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6269 - acc: 0.9217 - val_loss: 1.0352 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 41/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6364 - acc: 0.9164 - val_loss: 1.0326 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 42/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6310 - acc: 0.9193 - val_loss: 1.0373 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 43/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 14s 7ms/sample - loss: 0.6333 - acc: 0.9188 - val_loss: 1.0314 - val_acc: 0.8126</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 44/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6167 - acc: 0.9261 - val_loss: 1.0348 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 45/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6289 - acc: 0.9169 - val_loss: 1.0363 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 46/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6363 - acc: 0.9178 - val_loss: 1.0373 - val_acc: 0.8116</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 47/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6132 - acc: 0.9256 - val_loss: 1.0384 - val_acc: 0.8097</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 48/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6304 - acc: 0.9169 - val_loss: 1.0396 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 49/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6407 - acc: 0.9125 - val_loss: 1.0399 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Learning rate:  0.001</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Epoch 50/50</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2069/2069 [==============================] - 13s 6ms/sample - loss: 0.6391 - acc: 0.9174 - val_loss: 1.0401 - val_acc: 0.8106</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Best accuracy (on testing dataset): 81.26%</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">             precision    recall  f1-score   support</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">        cat     0.8255    0.8209    0.8232       363</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       bird     0.7965    0.9083    0.8487       349</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">        dog     0.8188    0.6997    0.7546       323</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">avg / total     0.8136    0.8126    0.8104      1035</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">[[298  30  35]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> [ 17 317  15]</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> [ 46  51 226]]</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAXUAAAEFCAYAAAAc33cJAAAACXBIWXMAAAsS
+AAALEgHS3X78AAAAO3pUWHRTb2Z0d2FyZQAACJnLTSwpyMkvyclMUihLLSrO
+zM9TMNIz0jPWUcgoKSmw0tfPhSvQyy9K1wcApzcQ854efX0AACAASURBVHic
+7d15fF5lnf//1zn3vmTf16bpkpaWLlBLS3EpVgruOF+QQYZFFmtHURisyFqU
+ahVlVHAYEFkq4PKDUZwio6AgtBRosRulNN2StE3S7Pu9nnP9/jjJnaRN0qZk
+631/no/cj3u/zrnu5X2uc90n16UppRRCCCHigj7eKyCEEGLkSKgLIUQckVAX
+Qog4IqEuhBBxREJdCCHiiIS6EELEEQl1MeIqKirw+/3jvRonpGkaDQ0N470a
+QowoCXUhhIgjEupiTLW2tnLFFVcwe/ZszjzzTFatWkU0GgXg7rvvZs6cOSxY
+sIDly5dTU1Mz5O19y0xOTqa2tjZ22znnnMOLL75IeXk5n/jEJ1i0aBGTJk3i
+c5/7HMFgsN/zn3jiCT796U8PeD0cDnPTTTdx1llnMXfuXK6++mra2tpG5bUR
+YiRIqIsxdeONN5KRkcHOnTvZsmUL27dv58c//jGHDh3ipz/9KZs3b2bLli1c
+cMEFvPXWW4Pe3ldKSgoXX3wxTz31FAC7d++mtraW5cuX88tf/pKrrrqKN998
+k3379nHw4EFeeOGFk17ftWvXYrfbeeedd9i+fTv5+fnceuutI/qaCDGS7OO9
+AiKxvPjii2zcuBFN03C5XKxYsYKf/vSnrFq1irlz53LWWWdx0UUXcdFFF/Hx
+j38c0zQHvP1Y1113HStXruSWW27h8ccf58tf/jK6rvPDH/6Ql156iR/96EeU
+l5dTXV1NR0fHSa/v+vXraWlp4aWXXgKslnt2dvaIvR5CjDQJdTGmTNNE07R+
+1yORCLqu849//IMtW7bw8ssvc9NNN3HhhRfyox/9aNDb+/rwhz9MNBrl7bff
+5plnnmHTpk0A/Ou//ivRaJRLL72UT33qU1RVVXHscEeapvW7LRwOxy4bhsHP
+fvYzLrroIgA6OjqO674RYiKR7hcxppYvX86DDz6IUopQKMQjjzzCJz7xCbZv
+387s2bOZOXMm3/nOd7jpppvYvHnzoLcP5LrrruPrX/86c+bMoaioCIC//OUv
+3HXXXXzxi18E4K233sIwjH7Py8rK4t133yUYDBKJRHj22WePW99wOIxpmlx/
+/fV85zvfGaVXR4gPTlrqYlR0dnYed1jjpk2b+PnPf87Xv/51zjzzTMLhMBde
+eCG33347TqeTSy+9lAULFuD3+/F4PPz85z9n7ty5A94+kKuuuorbbruN3/zm
+N7Hbvv/973PxxRfj8/lISUnhox/9KPv27ev3vAsuuICPfvSjzJgxg7y8PJYu
+XcqOHTsAuPPOO7nllluYP38+hmEwb948fvKTn4zwqyXEyNFk6F0hhIgf0v0i
+hBBxREJdCCHiiIS6EELEEQl1IYSIIxLqQggRR4Z9SGN1dfWwF6JMg6zsnIQc
+ES8zM1PqnUCk3onlZOudn58/BmtjGfWWulIK8+Ef0f7Eg6jugZuEEEKMjtHv
+fjEMtieXsvNv/8D8ye2opsTbmgshxFgZ9VCPajYe9i9g7eIbaTjahPm9b6J2
+bR3txQohREIa9VB32DRu+2ghQc3O9z/6LQKp2Zg/W435/DMo0zhxAUIIIU7a
+mBz9MinVxfc+OYOqTpOfnPcNzMUfR63/LeZ/3o1qax6LVRBCiIQwZoc0njMp
+ja98KId/1gZ4bPalcNWNcOB9zLu/hvnKn1GGtNqFEOKDGtPj1C+clsbnZ6bz
+5/IW/px5Fvpt90NBCeqZ/8a850bUzi3HjXUthBDi5I35Px9dNT+LRUV+fvVO
+HZtVGvp/3Iv+77eBYWD+/LuYP70bdbhirFdLCCHiwpiHuq5p3HxuPlPS3fxk
+YzUHm0No8xah3/MA2hevg4p9mN/9Jua6B1H1tScuUAghRMy4DBPgsuvc/rFC
+/E4bq/9+iD0NATS7A33ZZ9G//zDa+Z9CvfF3zNtXYD78I1TF3vFYTSGEOO2M
+29gv6R473/14MR6Hzu0vVfF6RRsAmi8J/bLr0df+Em35xahd/8Rc8x8YP74d
+tfMd6XMXQoghjOuAXgXJTu5bPolpGW5+vLGa37/bEAttLTUD/V+uQv/hY2iX
+XANHqzF/fg/mPTdi/n09qqNtPFddCCEmpHEfpTHZbee7Hy/iYyXJPL29gZ+/
+WUPE6G2Nax4v+gUXo//gEbRrvgm6jvrNI5jfuhrjv9daR8zI4ZBCCAFMkImn
+HTadb56bR16Sk9/sbKCuI8KtHykkyWWLPUazO9DOPR/OPR9VdQD1xt9Qb72K
++c4bkJKOtngp2sKPQGEJmqaNY22EEGL8TIhQB9A0jcvmZJKb5OCBN2v51l8q
+WHVeAaXp7uMfW1yKVlyK+n9Xw47NmG/8HfXXP6D+7znIzEGbvwht/mKYUoam
+245fmBBCxKkJE+o9PjY5hRyfgx9tqOZbf6ngynnZfGZGGvoArW/N7oCzzsV2
+1rmothbUtrdQW99EvfIC6qXnISkFbd45aHMWwLTZaD7/ONRICCHGzoQLdYCZ
+2V5+9skSHnyrlsf+Wcc/azr5xuI80j2Dr66WnIr2keXwkeWoQBdq5xbY+ibq
+7ddRr/8VNA2KStHKZqOVnQnTZqF5fWNYKyGEGH2aGuYxgqcy8xGc2swoSin+
+b28Lj/2zDrdd58ZFeXyocHitbRWJwIE9qD07UeXvwv73IRoBTYeiyWjTzkCb
+NgumzURLThtW2SdDZoRJLFLvxDIRZz6akC31HpqmcdH0NGbleLl/YzX3/uMw
+n5yeylXzs3HbT+7AHc3hgLLZaGWzAVCRcJ+Q34V67S+ov/2v9eCcArRpZ8DU
+M9BKpkFegfTJCyFOKxM61HsUp7i4b/kk1m2r50/vN/P24Q6uOzuHRUX+YR/p
+ojmcUHam1QUDqGgEKvej9r2H2vse6p+bYMNLKACny2rNl0yD4ilok6ZCbgGa
+TYJeCDExnRahDtZhj9eencOioiQe3nyUta8fYX6ej+sX5FCQ7DzlcjW7A6bM
+QJsyA5Z/AWWaUHsYVbkfKvehKvdbffLhkBX0dgfkF6EVlFiHTxZOss5HoetG
+CCGGa0L3qQ/GMBV/Lm/mmR0NhA3F52emc8nsjJPukhkuZRpQe8QK+sMVqCMV
+cLgSWpt6H+RPhvxitPxiKOg+zy8mq6RU+hoTyESut1IKjCgYRu95KGidggEI
+BSAYQAWD1v0D0W3gcFiNIYcTHNZ5alo6LUdrrOcHuqyyAl0QCoHLBb4k8Pqt
+I9B8fvD6QSkIh/qdVChk/eZl9qyjefxlZYJ5zEmZVn16LvfcbhjWc0zT+h4b
+fe5XClDd59bFftd7Xzir6t+426p3H9KnPkJsusZnZqRz3qRknthax7O7GvnH
+wVaunJ/NeZOSBjz88YPQdFtvYPeh2tvgSIU1VHB1Faq6CvXWqxDooudjUZ+S
+hpmVh5ZbYHXd5ORDTiFk5Rz3ARGnP2VEUZ3t0NVpBWWgy/o8hAJoug52O9js
+YLP1nptqgKAyIBpBhYJWMIZDVviGu6+HAqhgoH8oh0PHBKHRe25ErXJHqp7H
+XG8a8FFYBySo3uWO6MhNmga6bi3DZuu9rPc92brvsx1/e08ZffNioOvWhRFe
++ePt3buXp59+mtWrV/e7fcuWLTz33HPous7SpUtZtmzZkOWclqHeI81j56Zz
+87lgaiqPbD7KTzZW88fdbq6en8Wc3NE/XFFLSoYZc9BmzIndppSC5oZYyDub
+GwhW7kdtfxs2tPZ+LjQdMrIgKxctKw+yc9GyciErD1LTwZdkhYAYNUopq1UY
+DvUGcDAAwS5UwDrvCWUCnVY4d59bAdvTwgxDxLpcFx2khcsIZYLDabV8XR5w
+d59cbkhORXO6+mwweoLMBjb9+A1Jz7nThRYrp0959kGiwTAgGoVI2HrtIhGI
+hEn2+2gLR7rXyQser3XZ7rAe29UBnd2nrnZUZydoGprLBU639ftVz8nRveHr
+u+768cEcT/85/vzzz/Paa6/hdvf/Z8toNMqTTz7JD37wA9xuN3feeScLFiwg
+NTV10LJO61DvMSvby/0XlfCPijae3l7PnX87xFl5Pq6cn8XktOP/I3U0aZoG
+6VmQnoU2+2xSMjOJdO+eqa4OOFqNqj0CR49AfS2qvhb1z43Q0d7/S2+zQXIa
+pFgnLSXdCvvUdLS0DEjNgLQMa5c2jj7c0CdsI2ErNHpaqT2ncNDaTY/dFoBg
+7/0qHOwOnkhvOdGIddsxu/vH7WoPRNOsgPJ4weOzLnt91nvRN4ycTryp6XSZ
+Cjw+NE+fgHO5e7sDju0C6WlxHtuadDitcl29oTdRN/SuzEy0wbohel6f1IzY
+TfH1if3gcnJyuOWWW3jwwQf73X7kyBFyc3Px+61DucvKyti9ezeLFy8etKxh
+h3pmZuZwn2ItyG4/5eeerEuzs/jcWZN5bns16zYf5qY/V7B8RhbXLppEfsrY
+hnuP/vXOhOKSAR9ndnZg1B7BOHoEs7kRo7kRs7kBs6nBun6wHNXWAhzT4nM6
+0X3JaC6rxaU5XWguN7jcaG43mtuL7vZY97k9aB4vmssdCyPN6URzuKzrDocV
+GrreuxuqdV+ORlDdfZ4qHIJI2LoeDKBCQes8GEQFu1ChIG3RCI5otLcfs7tL
+QZmGFcjhEKqnjO7WrnW9O4CHy+GM1VF3udEcDutIJ7vDCleHE83htOrucluv
+V/dlnC50jw/N60Xz+qzXzOuzXiuv3zo/yTC12+34h2itx6ux+H5PRMOp9623
+3hq7vGzZsn7dKIsWLaKuru645wQCAbxeb+y6x+Ohq6tr6HU6qbXp41R/BBrL
+H5AumOTm3NzJPPdeI//7fgN/3VPPOYVJfHZGGjOzPGPash1WvVMyrNMAdLr/
+kaq1CVoaUc1N0NoIzU2oQGcscAmHIBCA1pb+rdtgoF/f5qjQNGtX2u1Gd7kx
+lerf+uzp+3Q4wem0WrMOZ/cPbtaPblqfH9+wO6xTdwDjdHd3PfS57PaA0412
+THdB909gH1wgaJ1O0kT+oXQ0Sb2Hlp+fz9q1a4ddvsfjIRjs/fwFAgF8vqG7
+luOi+2UgfpeNq+Zn8+myNNbvaeav+1rYdKidKeluPjsjjSXFyThsp9dOoOZw
+QGaONWjZMJ8b69IIdndXRCJWP3BP90ZPN4VSqJ4f7pTqPdnt/QPY6QSH1eXQ
+E6w4nbENZqJ+yYUYSQUFBdTU1NDR0YHb7Wb37t189rOfHfI5cRvqPTK8Dq6a
+n80Xz8zklQOt/O+eZv7zjRqe2FrPJ6el8ompqaQNMaZMvNA0rTeQk5KHfuwY
+rZMQYmAbNmwgGAyybNkyrrzyStasWYNpmixdupT09PQhn3taHqf+QZhKsa2m
+k+ffb2ZbTSc2DRYXJ/HJaWmckT3yXTMTpd5jTeqdWKTeQ5Pj1EeRrmmcle/n
+rHw/h9tC/N/eFv5+oJUNle0Upzi5cFoaS0uT8TpkKAAhxOkn4UK9r8JkF9ed
+ncO/zc3i9co2/lzewiNbjvLk1jrOyvezuMjPggI/PqcEvBDi9JDQod7DZddZ
+NiWVZVNS2dsY4OX9rbx1qJ1Nh9qx6zAnx8fi4iQWFvpJdctLJoSYuCShjjEt
+w8O0DA9f+VAO5Q1BNh1q581D7fzirVoeehvm5vo4vzSFRUV+nLaJ+Y8gQojE
+JaE+CF3TmJHlYUaWh6vnZ1HZEmJjVTuvHGjlJxur8Tl1PjIpmY9PSWFqujvu
+/qtTCHF6klA/CZqmUZLmpiTNzb/OyWRHbRd/O9DK3w608uLeFopTnHx0cgof
+npREjv/UhwEWQogPSkJ9mHRNY16ej3l5PjrCBhsq2/j7gVZ+va2eX2+rZ1qG
+m/MmJbGkOJksn4zCKIQYWxLqH4DfaePCaWlcOC2Nox1hNla283plG4//s57H
+/1nPjEwPH5kWINMRpTjVRbbPgU2XbhohRC/TNHn00UeprKzE4XCwYsUKcnNz
+Y/f/6U9/YuPGjei6zsUXX8zChQuHLE9CfYTk+J18YVYGX5iVQXVbmA2VbWyo
+aueRTZWxxzhtGoXJTopTXExOdzE728fkNJcEvRAJbPPmzUQiEdasWUN5eTnr
+1q1j1apVAHR2dvLiiy/ywAMPEAwGWbVq1ciH+kQepXGiyMyEOaX5rASCBuyr
+a+NgYxcHm7o42NjFroYuXq1oA+pJctmYV5DCWYUpnF2UyuQM74hP8jEeEun9
+7kvqnVhGYpTG999/n3nz5gEwffp09u/fH3ucy+UiKyuLYDBIKBQ6qQMy4nKU
+xokkMzOTXEeY3Fw7i3OTAWvclaZAlHePdrGjtpOdR9t5/YA1d0yKy8bcPB9n
+5fmYn+cj9TQdlyaR32+pd+IYiVEajx1eV9d1DMPA1j3BfUZGBjfffDOmafL5
+z3/+hMs6PRMjDqR77HykJJmPlFghX9cRYefRTrbXdrGtppPXKtoAmJLuYn6e
+n7PyfZRlerBLV40QccXj8RAIBGLXlVKxQN+2bRstLS2xyTPWrFnDjBkzmDp1
+6qDlSahPENl+Bx/3p/LxKamYSnGwOcQ/qzv4Z3Un//NeI8/uasTn0Jmf72NB
+vp+z830ky3+3CnHaKysr45133uHcc8+lvLyc4uLeuZB9Ph9OpxOHw4Gmafh8
+Pjo7O4csT1JhAtI1jSnpbqaku7lkdiadYYMdtV1sqe5gy5EONlS2owHTMz0s
+KPAxPcNDls9BpteOyy7/5SrE6WThwoXs2LGDO+64A6UUK1euZP369eTm5rJg
+wQJ27tzJ7bffjqZpzJgxgzlz5gxZXsINvTvWRrreplLsbwqy5UgHW450sq+p
+/6w8KW4bWV4HWT4H+UkOpmV4mJrhJtNrn7gzPsURqXdikaF3xQema1psfJp/
+nZNFSyDK4bYw9Z0R69QVoa4zSlVriLcPt2N0b7LT3DamZniYluGmJNWFx6Hj
+tOm47BpOm47TpuFx6PhlREohTmsS6qe5VI990CNkwobJweYQexsD7G0Msq8x
+yOYjHUOWl+GxMzXDHev+mZruPm2PwBEiEcm3NY45bTplmR7KMj2x2zrDBtXt
+YcJRRcgwCRmKUNQkbCg6wgYVzSH2NQV5+3BHbOLmDK+d6RlupmdYZU3JcOOW
+vnshJiQJ9QTjc9qYluE54eO6IgYHm6yA39cYpLwxwKZDVitf12BSqouyTA85
+fgeu7m6c2LldJyvspL0tgF3XsGlg0zXs3SePQ8dj1+U/aYUYBRLqYkBeh41Z
+OV5m5fT+U0RrMEp5gxXwexoCvFbRRlfEHKSEQydchtuu4XHY8Dp0vA6dZJeN
+VLedNI+dVLeNFLd1nu61k+Fx4HEMvHcQNkwOt4apbAlR2RKiLWSQ4bWT6bWO
+CMr0Ocjw2vE5dBkiWcQ9CXVx0lLcdj5U6OdDhX7AOhIn3N19E+rpzuk+d/uS
+aG5pxTAVUaUwTDBMRcRUBCImgYhJV8SgK2ISiJp0hk2aA1EONodoDUZjP/D2
+5XXoZHjtZHjspHsdhKImlS0hqtvDmN2Pt+saSS4brcFo7LYePofOpFQXk9Pd
+lKa5KE1zU5TiwmHTUErRGIhS0RyKbRyqWkM4bTpFKU7rlOyiMMVJls+BrmkY
+pqItZNASjNIciNISNLAdCRMNdll7Iw4bHruO267htusoQCnrdTP7nANoGmhY
+wzxr3ddT3HaSXaf2w7VhKlpDBo1dEVqDBl6HTqrbTorb2oj23bgZpqKxK0pd
+Z8Q6dURAg0yvnQyvgwyPnQyvPfa8iGHS2BWloStKQ1eExq4oUVs7REL4nDo+
+hw2f0/rR3evQMRVETEXEUET7nGd47UxKdZ30YbjBqElr0HqdW4NRWoMGrUGD
+kGFSlulhdo73pLoFO0IGNR1h6jojNHRa9e450KArYlp7lZqGrtO9p6lh1+Hu
+84tOi4lxJNTFKdM1LRZYx8rMTKPBZ5xSuaZSdIRNWoJRWgJRmgJRGruiNAai
+NHaHSFVNJ06bxqRUF+cWJzEp1UVxqov8JCd23QrcpoAVOg2d1vnRjggHm0P8
+bX8LL0StNLXrkJ/kpDEQpTPcu9eR4bUzKcVFyDDZfLiDl/f31sVl03A7dNpD
+xnEbjpGW7LJRmOwkP9lJYbKTwmQXfpdOR8ikPWzQHjLo6D63Qtx6jZoDA28Y
+ARy6RorbRrLLRkfYpKErclL1cNuto6TaQse/r06bRniwBQ5B16Aw2UlpupvS
+NDel6S6cNp2a9jC17RGq28PUdJ/awwPvFWqAwnovZ2R6mJvnY16ujynpbgIR
+k31NQfY3BWPnRzsix9Ur22cny+egMMWGYSoMpaxzE6JKYZpq1MZkOtEojVu3
+buXZZ58FYPLkyVx77bVD7nFKqIsJR9c0kl1W6BSnuE6pDJuukeWzjtcnq/99
+hqmo7YhwoCnIgeYgh1rDnJHtZVKqyzqluPAf00JuC0Y51BbmcGuYQ20hwlFF
+itsW6ypKc1tHIRVkZ1Jd10Awau2NBLrPg1ETTdPQNat+1jm9X04FJoruP0wF
+zYEoR9rCHG4LsflI/w1L/9fLGgY6yWUjw2tnTq6XdI+ju6VtJ8VtpyvS08q1
+Wrg9rd2iFBvZvmSy/Q6yfQ5y/NbzgNjGtKF7Q9EYiBKOqli5Gd3dW+leO8V5
+OdTW1dMVNugIm3RGDDrD1t6Yrmk4dA27zTp32KzW79GOCAearaDdXtvFqwfb
++tVLw9pbyEt2cm6xtY5p3d1yKW6rq65nT2Z3fYDttZ1sq+nk6e0NPL29AZdN
+I9RnQ5PrdzA13c3yqakUpjjJ9jnI8jrwOce3W26oURoDgQBPPfUUd999N8nJ
+yTz//PO0t7eTnJw8aHkS6iLh2HSNgmQnBclOPlwy+Jejr2S3nVluO7OyvUM+
+Lt3nxEwandmvOkIGh9vCdEUMkly2WJB7HfqotCJz/M5hzeRl1zWS3XaS3Sf3
++NJ0N4uLk2LXWwJRDjQHiZiK/CQnOX7HSXd39Excc9V867efHbVd7G4IkO6x
+M7X78NykU+zKGm1DjdK4Z88eioqKWLduHXV1dZx//vlDBjrI0LujTuqdWEaz
+3plAScGoFP2BjUS9M4GpRR98XTKBKYVw8Qcv6oRGYujdoUZpbG9vZ9euXdx3
+33243W7uuusupk+fPuR/qMrQu6NM6p1YpN6JZSSG3h1qlMakpCSmTJlCamoq
+ADNnzqSiomLIUJ/4P+UKIUQcKysrY+vWrQDHjdJYWlrKoUOHaGtrwzAM9u7d
+S2Fh4ZDlSZ+6EEKMoxON0nj55ZezZs0aABYvXtwv9AcioS6EEONI13VuuOGG
+frcVFPT+eLJkyRKWLFly8uWN2JoJIYQYdxLqQggRRyTUhRAijkioCyFEHJFQ
+F0KIOCKhLoQQcURCXQgh4ogcpy6EEOPoREPv9jxm7dq1LFiwgAsuuGDI8qSl
+LoQQ46jv0LuXX34569atO+4xv/3tb+noGHrS+B4ySuMok3onFql3YhmJURqH
+GnoX4M0330TX9dhjTrhOJ/WoPmSUxuGReicWqXdiGYlRGocaereqqooNGzZw
+8803x2Y/OhHpUxdCiHE01NC7r732Gk1NTXz3u9+lvr4eu91Odnb2kK12CXUh
+hBhHZWVlvPPOO5x77rnHDb17xRVXxC7//ve/JzU19YTdMBLqQggxjk409O5w
+SagLIcQ4OtHQuz0uvfTSkytvRNZKCCHEhCChLoQQcURCXQgh4oiEuhBCxBEJ
+dSGEiCMS6kIIEUfkkEYhhBhHJxqlcf369bzxxhsAzJ8/n0suuWTI8qSlLoQQ
+42ioURqPHj3Khg0buPfee7n33nvZsWMHlZWVQ5YnLXUhhBhHQ43SmJGRwW23
+3YauW+3vaDSKw+EYsjwZeneUSb0Ti9Q7sYzE0LtDjdJot9tJTk5GKcWvf/1r
+Jk+eTH5+/tDrNNxKyNC7wyP1TixS78QyEkPvDjVKI0A4HOahhx7C4/Fw3XXX
+nXBZ0qcuhBDjqKysjK1btwIcN0qjUor77ruPSZMmccMNN8S6YYYifepCCDGO
+hhql0TRN3nvvPSKRCNu2bQPg8ssvZ/r06YOWJ6EuhBDj6ESjND799NPDK29E
+1koIIcSEIKEuhBBxREJdCCHiiIS6EELEEQl1IYSIIxLqQggRRyTUhRAijshx
+6kIIMY5ONPTuyy+/zMsvv4zNZuMLX/gCZ5999pDlSUtdCCHG0VBD77a0tPDi
+iy/yve99j9tvv51nnnmGSCQyZHnDbqmfaISw0Xru6UzqnVik3onlZOs92CiN
+Qw29u2/fPsrKynA4HDgcDnJzc6msrGTq1KmDLmfMWup9K5RIpN6JReqdWIZT
+77Vr18ZOPYEOgw+9C9DV1dXvPo/HQ1dX15DLke4XIYQYR0MNvev1egkGg7H7
+AoEAPp9vyPIk1IUQYhwNNfTu1KlT2b17N+FwmK6uLo4cOUJRUdGQ5dlWr169
+ejRXuK/S0tKxWtSEIvVOLFLvxPJB652fn8/27dv5wx/+wLZt27j++ut57bXX
+aGtro7S0FJvNxmOPPcarr77KJZdcwqRJk4YsT1NKqQ+0RkIIISYM6X4RQog4
+IqEuxlQkEiEvL4+LLrpovFdFiLgkoS7G1P/8z/8wb948tmzZwu7du8d7dYSI
+OxLqYkw99NBDfO5zn+OLX/wiP/vZz2K3P/bYY8yaNYs5c+Zw/vnnc+jQoUFv
+f/XVV5k9e3bsuX2vr169muXLl3PmmWdyxRVXcPToUT7/+c+zePFiJk+ezMc+
+9jHq6uoA60iDpUuXMmvWLM4880x+97vfsXHjRoqLizFNE7COE87Ozqa+vn6s
+XiIhPhglxBjZtWuXcjqdqqGhQb399tvK4/GohoYGtW3bNpWZmamqqqqUUkr9
+53/+p/rKV74y6O2vvPKKmjVrVqzcvtfvvvtuVVZWpiKRiFJKqZ/+9Kdq7dq1
+SimlTNNUF110kfrxj3+slFJq/vz56he/+IVSSqmqqipVWlqqWltb1dy5c9UL
+L7yglFLqV7/6lbrsssvG4NURYmTIgF5izDz00EN8+tOfJiMjg4yMDCZPnswj
+9GVl/QAAHlZJREFUjzyCy+Vi+fLlseNvv/nNbwJw//33D3j7q6++OuRyFi1a
+hN1ufbS/8Y1v8Prrr3P//fezd+9e3n33Xc455xyamprYvn071113HQBFRUWx
+f8/+93//d375y1/yyU9+kocffpj77rtvxF8LIUaLhLoYE52dnfz617/G5XJR
+UlICQFtbGw8++CCrVq1C07TYYwOBAJWVldjt9gFv1zQN1edI3HA43G9Zfr8/
+dvnb3/42b7/9Nl/+8pdZunQpkUgEpVQs9PuWv2fPHoqLi/nSl77Ebbfdxiuv
+vEJHRwcf+chHRvS1EGI0SZ+6GBNPP/00GRkZVFdXU1FRQUVFBQcOHKCjo4OW
+lhZefvllampqAHj44YdZtWoVS5cuHfD2rKwsqqqqqKurQynFb3/720GX+5e/
+/IVvfvOb/Nu//RvZ2dm89NJLGIZBcnIyZ599Nk8++SQAhw4dYsmSJbS2tuL1
+erniiiv48pe/zIoVK0b/xRFiBElLXYyJhx56iJtvvjk2pgVAamoqN954I+vX
+r+e+++7jwgsvBCAvL4/HHnuM/Pz8QW//yle+woIFC8jLy+PTn/40b7/99oDL
+veuuu7jlllu48847cTgcnHfeeezbtw+AZ555hpUrV/LAAw+gaRqPPvpobBzr
+a665hkceeYQrr7xyNF8WIUac/EepEMdQSvHDH/6QyspKHnroofFeHSGGRVrq
+QhyjtLSUvLw8nn/++fFeFSGGTVrqQggxAezdu5enn36aY8dY3LJlC8899xy6
+rrN06dJ+Y7EPRFrqQggxzp5//nlee+013G53v9uj0ShPPvkkP/jBD3C73dx5
+550sWLCA1NTUQcuSo1+EEGKc5eTkcMsttxx3+5EjR8jNzcXv92O32ykrKzvh
+8BrSUhdCiDEw2BylYP3DXM/wFX0dO9XdyUxnN+xQr66uHu5TAMjMzKShoeGU
+nns6k3onFql3YjnZeufn57N27dphl+/xeGQ6OyGEiBcFBQXU1NTQ0dFBNBpl
+9+7dTJ8+fcjnSPeLEEJMMBs2bCAYDLJs2TKuvPJK1qxZg2maLF26lPT09CGf
+O+xDGqX7ZXik3olF6p1YhtP9Mlak+0UIIeKIhLoQQsQRCXUhhIgjEupCCBFH
+JNSFECKOSKgLIUQckVAXQog4IqEuhBBxREJdCCHiiIS6EELEERn7RXwgUVNR
+3R7mUEuIqtYQVa1hDrWGcDmqWDY5iaWlKbjtY9d2MExF2FB4HCe/zPaQQXvI
+IBA1CUS6T1GTYNQEwGnTuk967DzX7yDV88G/PkopOsMmrSGD1mA0dt4WNFCA
+x6Hjsev9zqOmoqErSn1nxDp1RWnojBCImkxJd1OW4WF6ppupGW68DtsJ12G8
+RU3F/qYgO2u7eLeuC5sG5xQlsbDQT6p7eK+xUoqq1jDbajrZ0xCgKMXJwsIk
+StNcaJo2SjWYWGTsl1E2mvVWygqwzohJR8igI9xzMukIW0HVGjRoDVkh0RI0
+aAtFUcDZeX4WFfk5K98/aAAqZYVHeWOAxq6oVVYwSluot6z6zgjd2YcG5Pgd
+FKe6aA3DnroOfE6dC6ak8qmyNLJ8juPKr+2IsKchwMHmEGAFqMOm4eoOUIdN
+w+ew4XPq+J026+SyAq4zYlLZHOJgS5CDzSEONoc41BoiYigKU5yUZXooy/Qw
+PcNNUYoLm64RMUwONIcobwiwpyHAnoYgdZ2RYb/2ugbzcn0sLU3hnEI/ru4N
+V9/3uyNs8PbhDjZUtrG9tgvDPP6r9kHnkkx128jyOcjyOXDoGvuaghxpC8fW
+sTjFxZR0N3Zdw1AKUymiprXxMxWke2wUJLvIT3ZSkOQk02dH7w6/rohBZUuI
+iu7X9mBzkEDUZFKqi8mpbkrSXExOc5HusZOVlUVDQwNKKboiJk2BKE0B6zOj
+lMKma9ZJA5umoWlwsDnEu0e7eK8+ENuAFqc4CRmKox0RdA3OyPKwqCiJRUVJ
+A35+oia0hqLsqO1ie00n22s7aQ4a1nvhtdPYZX3eMzx2FhT4WVjo58wcb+z9
+OlmGadXhWBNx7BcJ9VH2QevdFIjy1qF23qnupCUY7W1Fdp8PkBMxugZJThsp
+bhvJbjspLutyMKrYcqSDtpCBQ9eYn+9jcVESc3K91LZHrMBrtAKvORDtV16y
+y0ZKn7KyfA6KU1wUp7ooTHbGviwZGRls2H2I/93TzKZD7QAsLkpiSXESh9vC
+7GkIUN4YpD1kfQEduoauQdhQJxV0uka/uqe4bN0h48bj0NnbXX5bd/luu9W6
+PtwWJtr9xAyvnbJMD9My3KS57VZruE+LuGcPI2wowobZex5V7K4P8MrBVhq6
+ongdOkuKrb2Ss6bk83/bK9lY1cbWmk6iJmT77HyoMAnfIBtPf/d71Pd1TXbZ
+0DSt355Dz7muQbbPQYbXjtN2fJntIYO9jb0brYrmICZg1zRsOuiaFbAa0NgV
+JdCzVcbaqOYlOQkbJjXtvRs7n1Nncpobr0OnojnUb0OY7LJRmOalqcP6vISM
+k4+UohQnZ+Z4mZ3jZVa2l1S3HaUUFS0hNh1q582qDipbrQ1+ts+OYULYVISj
+JpHuDVPfz8DcXB9z87zMzfWR5XPQGozyTnUnbx9uZ2tNJ8GowmXTmJLutjZk
+fU65ficANe1hqlpDHGoJd+99hqjvjPD0JdOxHxPsEuoJFOqBiMnfD7TSENYx
+I6F+LVCHTcNj10n32knz2En32PE59NjuYW17mDcPt7OpqoM9DQEUkOt3kJfk
+HHB33OvobsW6bPj7tGi9Dn3A1gVYLY/d9QE2HWpn06F2Grui/e7PS3J078Zb
+u/K5fic+px5rxZ1I3/e7riPCn8ub+ev+FjrDVoAUDdKS7ml9hQ2TiKEIGSZd
+EbN3DyTUuzficehMTnVR0t1aPHb3uu+eQHlDgOr2CCWpLmuZmW4yvI7j1ns4
+TKV492gXrxxs5Y2qdoLR3q9SptfOeZOSWVKcxLQM94Td9VdK0Rw0qG4Lc6Qt
+zJG2ENXtYey6zuQ067UtTXOT6e3/+naEjX57SS1h8Ogm6R476V476R4HaR4b
+qW6r5W+YCkMpDBNrj8FU5CU5T6oLq7otzKZD7VS0dH+PdA2XXcehazjt1p7c
+zCwPJWmuIT+fEcNk59Euthzp4GBziCNtYVq7N/pgNRR0jeP2PItSXBSnOPl/
+szOO686SUE+AUG8KRHlhTzP/t7eZjrBJkstGOGqesAXqtGmke+zYdC22+1ya
+5mJRURKLi5IoSnGOWjAopdjXFOS9ugAFyU6mZ7hJHmZf5rEGer+DUZODzUGK
+Ulz4nRO/r3c4AhGTNw+10xy1MytdZ/oEDvLRcLp+vztCBkfaezZoYUylukPc
+RVGK84TdNCMR6qZp8uijj1JZWYnD4WDFihXk5ubG7v/jH//Ixo0b8Xq9fPaz
+n+Xss88eclnyQ+kIqWoN8fzuJl492IZhKhYV+fnczHQ+PLM41tcY7f4RL2xY
+/Y7N3f2OTYEIzQGDpq4oXRGD5VNTWVTkJ6d7d3C0aZrGtAwP0zI8o7oct11n
+Zpb3xA88DXkcOktLU07bcEtUfpeNMpe1xzheNm/eTCQSYc2aNZSXl7Nu3TpW
+rVoFQFVVFRs3bmTNmjUA3HnnncyePRuXyzVoeRLqJykUtbpTmgLRfn2cwahJ
+W8hgb2MQp03jE1NS+NzMdPKS+geyplndLw4b+IA0DxQkj01oCyEmrvfff595
+8+YBMH36dPbv3x+77/Dhw5xxxhk4nVZW5ObmUllZOeSUdsMO9czMzOE+xVqQ
+3X7Kzx1vu2rbufev5VQ1B9AAj9OG12HD232e5HFx3aJsLp6TR6qnfz/t6Vzv
+D0LqnVik3id26623xi4vW7aMZcuWAdZk0l5v7x6srusYhoHNZqO4uJg//vGP
+BAIBotEo5eXlsecNuk7DrcSp7lqejrulYcPkNzsa+OPuJtI9dlafX8S8XO+g
+faXRzlYaOvvfdjrWeyRIvROL1Hto+fn5rF27dsD7PB4PgUAgdl0phc1m/eZU
+WFjIhRdeyPe//31yc3OZOnUqSUlJQy5L/qN0EHsbA9z8YgX/814THy9N4eef
+msz8PF9C/fglhBh9ZWVlbN26FYDy8nKKi4tj97W1tdHW1sb3vvc9rrnmGhob
+G/vdPxDpUz+GYSp+u7OBZ3c1kua2c/fSQs7K94/3agkh4tTChQvZsWMHd9xx
+B0opVq5cyfr168nNzeXss8+mrq6O73znO9jtdq644gp0fei2uIT6MTZUtvH7
+dxtZOjmZ6xbkxN2hd0KIiUXXdW644YZ+txUUFMQuH3vfiUioH2NvYxCXTePr
+i/IG/ccdIYSYqKRP/RgHm4OUpLkk0IUQpyUJ9T6UUhxsCVGS6h7vVRFCiFMi
+od5HfWeUzrDJ5LTB/1tLCCEmMgn1Pg42BwEoTZeWuhDi9CSh3sfB5hAaMClV
+WupCiNOThHofB1uC5CU5x3SmHiGEGEmSXn0cbA5Jf7oQ4rQmod6tI2xwtCNC
+aZr0pwshTl8S6t0qu+fIlJa6EOJ0JqHe7WCLdeRLiYS6EOI0JqHe7WBziBSX
+jfSTmDNRCCEmKkmwbgebg0xOc8nQuhOYMk2IRCASgnAYNA0cDnC4wOFAO2b0
+OqUURKMQCVunaGT4C7XZwOG0Tvbjl3FK9YhGIRq26hCJwJCz144ylxu8PjR9
+ZAauU0qBYXS/5iGrfuG+l0Pd90VA163X1ensfY2dTtBt1nt7sjQNPD5we+T7
+i4Q6AFFTUdkS5jNlaeO9KidFKQXBALQ0QWuT9aH2+q2Tzw+u/pMeq3AIOjug
+qyN2rrr6XO+5LdAFg8xDrrk94PX1LsPrR/P6rS/hAELJyai2tuPvMBVEQqie
+cO77pe/qtNaj77oGOiEUsu6PRod+Yex2Kxh0W2/Zw5tX/cTsDmsZtoGDp07T
+GHAud9WzQQqDaY7sOo0Ej7f7M9T9Htts3e/LMSfDGPDpdXR/zsJhq67jQdd7
+17+nLqbZu+5963MKnwv9h79Cc4z8FJQnmnj6T3/6Exs3bkTXdS6++GIWLlw4
+ZHkS6sCRtjBRU43bj6TKNKChDqqrUHU1EAoeE3hhCIdQ7a29QR4KDl6gzWZ9
+qHXdCsahWqia1vuF9nitQDxuBRXqaLUVtF0dsVAa6mvRcnJV7+/YYMkrtDYc
+Lre18bAf06qD/l/YntavaVitd6fVusZpteSxO4bXAuzX6uy7nAgYA29g3G43
+weBA703PXsUxrVK7w3qfxoNS1ueoz0Y0trGPhK11dKeA02mF2RAbM7fbQ9A0
++7xHvXtQOJxoPe9Bn9v6BW73SfW8f8NhmrEGQf96dFqvrdMFviRrb65n+bZT
+2DPRRud9Gmri6c7OTl588UUeeOABgsEgq1atklA/GT3DA0weocMZVTQKB/ag
+dm+nLdiJaZj9w8jhtD7ENYdQ1VVQe9gKi75s9uNDKTkVbdIUSPkQpKZDajpa
+SvfeRecArW9l9mtZ4/Wj+Xpa20mxIB9Ol4JSCkIB6Oz+Eg2ywUhNSaWldaBo
+1wb40rvAYR+xLoDxlJyZSTgBp3UbqXonYufJUBNPu1wusrKyCAaDhEKhk+pe
+komngdrd7ThtGnNK87GfwpC7SimMwxWEt28mtH0zkXe3ooJdoOuEUtOtVnbP
+rmkfekY2juLJ2OctxF5Uir14MraCYjS3F+1UWhITiN1ux3Gi7pI4NJE/56NJ
+6n1ipzLxNEBGRgY333wzpmny+c9//sTrNJwKQHxOPL2rupniFBctTY2DPkZF
+o9DaDA1HUQ21UFcLDbWo+lqor4GOduuB2Xloiz6KPnMelJ1J1qSSWL2tH+66
+u1RsOprbiwEYQKhnQYGQdTrNTeT3ezRJvRPLaE88vW3bNlpaWnjwwQcBWLNm
+DTNmzGDq1KmDLivhu1+UUhxsDrGo0I/qaIN9u1GV+6GlEdXS1NuH3d7a/4m6
+DulZkJWLNn8xlExDO2MeWmbOoMvSNK1/f7AQIuGVlZXxzjvvcO655x438bTP
+58PpdOJwONA0DZ/PR2dn55DlJWyoK6Wg4SgN7++hPZTDpDf+hPmrF6w7NR2S
+UyElDdIz0UqnW5dT063QzsyF9Cw0e8K+fEKIETLUxNMLFixg586d3H777Wia
+xowZM5gzZ86Q5SVsKqmX/oj6/x7nQPoMmPNlJruiaBf/G9rUM6BkqvVrvRBC
+jLITTTx96aWXcumll550eYkb6nt3Q0Y2lZ+5HioMSm9Yge44vX+cFEKIxB0m
+oL4GCks4aHrJ9TvwSqALIeJAQoa6Mk2or0HLzqOiOThix6cLIcR4S8hQp7UZ
+wmECmfnUtEdkuF0hRNxIzFCvqwGgyp+PQsZQF0LEj4QMdVVXDcABWyowcsMD
+CCHEeEvIUKe+Bmx2KiIOkpw6md6EPQhICBFnEjLU1dEayMrhYEuYkjS3jMEs
+hIgbCRnq1NVgZOVT2RKS/nQhRFxJuFBXSkF9DTVZkwkbSvrThRBxJeFCnbYW
+CAWpSC4EoFRa6kKIOJJ4od59OON+RwZ2HQqSJdSFEPEj4Q77UHU1KOCtDiez
+c7w4bPIjqRAifiRkS/1gUiG1AcWS4qTxXhshhBhRCddSp66aNyYtQtdgUaF/
+vNdGCJHgTNPk0UcfpbKyEofDwYoVK8jNzQWgoqKCJ554IvbYvXv38q1vfSs2
+p+lAEi7UzboaNk1aypwcL8nuhKu+EGKC2bx5M5FIhDVr1lBeXs66detYtWoV
+ACUlJaxevRqATZs2kZaWNmSgQ4J1vyilqOhU1NiSWDIpebxXRwgheP/992NB
+PX36dPbv33/cY4LBIL///e+55pprTljesJuqpzpj+ESYbdxsbWZd8nR0FJ+c
+O4lUj2PUlzkR6j0epN6JRep9Yrfeemvs8rJly1i2bBkAgUAAr9cbu0/XdQzD
+iE0+DfD3v/+dxYsXk5x84sbosEP9VGcMnwizjZv73mdT1hzO9BtEO1tpGHr+
+1hExEeo9HqTeiUXqPbT8/HzWrl074H0ej4dAIBC7rpTqF+gAGzZs4Oabbz6p
+dUqo7peDh+up8WaypNA33qsihBAAlJWVsXXrVgDKy8spLi7ud39XVxeRSOSk
+9wgS6pfCjXUGujJYNCNvvFdFCCEAWLhwITt27OCOO+5AKcXKlStZv349ubm5
+LFiwgOrqarKysk66vIQJdaUUb4T8zO46TIpv1nivjhBCAFYf+g033NDvtoKC
+gtjlqVOnxo6GOanyRmzNJriKlhA1up9zzdrxXhUhhBg1CRPqGyrb0ZXJouTI
+eK+KEEKMmoQIdaUUb1S0MLt5HylZiXfYlRAicSREqFe0hKjuNDi3fidatvxI
+KoSIXwkR6hsr29FRnNPwLkioCyHiWNyHulKKjVXtzLZ1kBLtgqzc8V4lIYQY
+NXEf6pUtIarbw5wbrIS0TDSHc7xXSQghRs1pcZy6qRTV7WH2NwapbAkRMhSG
+qTAVRE2FoRSmCXabhseh47HrsfNddV3oGiw8ul26XoQQcW9cQ91UiuZAlLCh
+iBiKkGHGLrcGoxxoDrGvKcj+xiCBqGmtsA4um45N17BpoOsadl1D1yBsKIIR
+k0DUxFS9yzk730fq5oNoZy0ep5oKIcTYGJdQN0zF65Vt/G5nA9Xtgx837tA1
+StJcfGxyMlMz3ExNd1OU4sKmDz0FnVKKsKEIRE0CEZM0QvBMm7TUhRBxb0xD
+3TAVGyrb+N27jRxpC1OS6uL6Bdl4HTZcNg2nTcdh03DZNLxOGwXJTuwnCPCB
+aJqGy67hsuukukFVVmECWpaEuhAivo1JqBum4uU99fzyjYMcbgszKcXFtz+c
+z6KiJHRt9Cd+VnU11gVpqQsh4tyoh7phKr71lwr2N4UoTnGy6rx8FhePTZjH
+9IS6tNSFEHFu1EPdpmt8eFIyV56Tzpw0xjbMe9TVQGoGmss19ssWQogxNCbd
+LxefkTGuM6OouhrpehFCTEimafLoo49SWVmJw+FgxYoV5Ob2/pPk1q1befbZ
+ZwGYPHky1157LdoQjeO4/+cjAOqqZcwXIcSEtHnzZiKRCGvWrOHyyy9n3bp1
+sfsCgQBPPfUU3/72t1mzZg1ZWVm0t7cPWV7cTzxtBjqpb2vBVzIF3zgsXybk
+TSxS78QyEhNPv//++8ybNw+A6dOns3///tjj9uzZQ1FREevWraOuro7zzz//
+hJNPx/3E06rqAABd/hQC47B8mZA3sUi9E8tITDwdCATwer2x67quYxgGNpuN
+9vZ2du3axX333Yfb7eauu+5i+vTp5OfnD7qs+O9+qZcjX4QQE5fH4yEQCMSu
+K6Ww2WwAJCUlMWXKFFJTU3G73cycOZOKioohy4v7UO89Rl1GZxRCTDxlZWVs
+3boVgPLycoqLi2P3lZaWcujQIdra2jAMg71791JYWDhkeafFgF4fSF0NpKSh
+ub0nfqwQQoyxhQsXsmPHDu644w6UUqxcuZL169eTm5vLggULuPzyy1mzZg0A
+ixcv7hf6A4nbUFfRKOqtV1Hb34bcghM/QQghxoGu69xwww39biso6M2sJUuW
+sGTJkpMub0xC3XzkPlp0HTOvCG3SVJg0FS1p6F9wT5UyDNSbr6Je+B3U18Kk
+qeiXXjsqyxJCiIlmbFrqbg/RfbtRb/2D2Ii4GdlWuOcVgi8JvH40nx+8fvD5
+we2FwQ6wdzjA4QSHE637BwVlGFb5L/zO6nIpLkX/99th7sIhD9QXQoh4Miah
+rl/5NTIzM6mvqoCqA6jKfVC5H1WxF7V1Eygr6tXQxQzMZrMCHiAYgMLJ6Ctv
+g3nnSJgLIRLOmPapa14/zJiDNmNO7DZlGhAIQFcHdLZDVweqsxOCXQMXohRE
+IxAJW6dwGCIRiEbQZs6BeYvQ9Lg/qEcIIQY07j+UarrN6m7x+WOTQkv7Wggh
+To00aYUQIo5IqAshRBzRlFKn9PukEEKIiWfMWup9RyhLJFLvxCL1TiwTsd7S
+/SKEEHFEQl0IIeKIbfXq1avHamGlpaVjtagJReqdWKTeiWWi1Vt+KBVCiDgi
+3S9CCBFHJNSFECKOjPowAaZp8uijj1JZWYnD4WDFihXk5sb3LER79+7l6aef
+ZvXq1dTW1vKLX/wCTdMoKiri2muvRY+zsWmi0SgPPfQQ9fX1RCIR/uVf/oXC
+wsK4r7dpmvz3f/83NTU16LrOV7/6VYC4r3eP1tZWbr31Vu644w5sNltC1HvV
+qlWx+USzs7NZtmwZTzzxBDabjTlz5nDJJZeM8xqOQahv3ryZSCTCmjVrKC8v
+Z926daxatWq0Fztunn/+eV577TXcbjcATz75JJdddhmzZs3ikUceYcuWLSxc
+uHCc13Jkvf766yQlJfH1r3+d9vZ2Vq1aRUlJSdzXe8uWLQB873vfY9euXaxb
+tw6lVNzXG6wN+SOPPILTaY2Qmgif83A4DEDfY0u+9a1v8R//8R/k5OSwdu1a
+Dhw4MO4/nI76pvT9999n3rx5AEyfPp39+/eP9iLHVU5ODrfcckvs+oEDBzjj
+jDMAmD9/Pjt27BivVRs1ixcv5otf/GLsus1mS4h6L1y4kK985SsA1NfXk5KS
+khD1Bvj1r3/NJz7xCdLS0oDE+JxXVlYSCoW49957ueeee3jvvfeIRqPk5uai
+aRpz587l3XffHe/VHP1QDwQCsd0VsKZuMgxjtBc7bhYtWhSbCbxHz7juHo+H
+rq5BhhQ+jbnd7tiM6Pfffz+XXXYZEP/1BmsD9uCDD/L444+zaNEiIP7r/eqr
+r5KcnBxrrPWI93q7XC4+85nPcPvtt3P99dfz0EMPxfZUwPoeTIR6j3r3S8+X
+vYdS6rjQi2d9J+oIBAL4fL5xXJvR09DQwI9//GMuuOACzjvvPJ566qnYffFc
+b4Cvfe1rtLS0cNttt8V20SF+6/3KK68AsHPnTioqKnjwwQdpbW2N3R+v9c7L
+y4u1yvPz8/F6vXR0dMTuDwaD/Rqw42XUW+plZWVs3boVgPLy8hPOhB1vSkpK
+2LVrFwBbt25l5syZ47xGI6+lpYU1a9bwpS99ifPPPx9IjHq/9tpr/OEPfwDA
+6XSiaRqlpaVxX+977rmHe+65h9WrV1NSUsLXvvY15s2bF/f1fuWVV1i3bh0A
+TU1NhEIh3G43tbW1KKXYvn37hKj3qLfUFy5cyI4dO7jjjjtQSrFy5crRXuSE
+cuWVV/Lwww8TjUYpKCiI7aLHkz/84Q90dHTw3HPP8dxzzwFw9dVX8/jjj8d1
+vRcuXMh//dd/cffddxONRrn66qspKCiI+/d7IInwOT///PP5xS9+wZ133omm
+aXz1q19F0zQeeOABTNNkzpw5TJs2bbxXU/6jVAgh4kn8HUgqhBAJTEJdCCHi
+iIS6EELEEQl1IYSIIxLqQggRRyTUhRAijkioCyFEHPn/AZwKIS9D3WWfAAAA
+AElFTkSuQmCC
+" /></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#000080;">In [</span><span style=" font-weight:600; color:#000080;">3</span><span style=" color:#000080;">]:</span> </p></body></html>

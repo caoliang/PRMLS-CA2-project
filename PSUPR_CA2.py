@@ -3,6 +3,7 @@
 Created on Fri Sep 13 19:58:24 2019
 
 @author: Jacky
+@author: Cao Liang
 """
 
 import pandas as pd
@@ -87,7 +88,7 @@ num_classes = tsLbl.shape[1]
 seed        = 42
 np.random.seed(seed)
 
-optmz       = optimizers.Adam(lr=0.0001)
+optmz       = optimizers.Adam(lr=0.00005)
 modelname   = 'PRMLS_CA2'
                             # define the deep learning model
 
@@ -222,7 +223,6 @@ def createResNetV1(inputShape=(128,128,3),
                metrics=['accuracy'])
     
   return model
-
                                 # Setup the models
 model       = createResNetV1()  # This is meant for training
 modelGo     = createResNetV1()  # This is used for final testing
@@ -230,7 +230,7 @@ modelGo     = createResNetV1()  # This is used for final testing
 model.summary()
 
 def lrSchedule(epoch):
-    lr  = 1e-3
+    lr  = 0.5e-3
     
     if epoch > 160:
         lr  *= 0.5e-3
@@ -253,10 +253,10 @@ LRScheduler     = LearningRateScheduler(lrSchedule)
                             # Create checkpoint for the training
                             # This checkpoint performs model saving when
                             # an epoch gives highest testing accuracy
-filepath        = modelname + ".hdf5"
+filepath        = modelname + "_training.hdf5"
 checkpoint      = ModelCheckpoint(filepath, 
                                   monitor='val_acc', 
-                                  verbose=1, 
+                                  verbose=0, 
                                   save_best_only=True, 
                                   mode='max')
 
@@ -271,11 +271,11 @@ datagen = ImageDataGenerator(width_shift_range=0.1,
                              horizontal_flip=True,
                              vertical_flip=False)
 
-model.fit_generator(datagen.flow(trDat, trLbl, batch_size=32),
+model.fit_generator(datagen.flow(trDat, trLbl, batch_size=12),
                     validation_data=(tsDat, tsLbl),
-                    epochs=200, #originally 200
+                    epochs=2, #originally 200
                     verbose=1,
-                    steps_per_epoch=len(trDat)/32,
+                    steps_per_epoch=len(trDat)/12,
                     callbacks=callbacks_list)
 
                             # Now the training is complete, we get
