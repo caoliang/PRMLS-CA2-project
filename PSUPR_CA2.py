@@ -161,13 +161,13 @@ def createResNetV1(inputShape=(128,128,3),
                         numClasses=3):
   inputs = Input(shape=inputShape)
   v = resLyr(inputs,
-            lyrName='Input')
+             lyrName='Input')
   
   v = Dropout(0.2)(v)
   
   v = resBlkV1(inputs=v,
               numFilters=16,
-              numBlocks=7,
+              numBlocks=3,
               downsampleOnFirst=False,
               names='Stg1')
   
@@ -175,7 +175,7 @@ def createResNetV1(inputShape=(128,128,3),
   
   v = resBlkV1(inputs=v,
               numFilters=32,
-              numBlocks=7,
+              numBlocks=3,
               downsampleOnFirst=True,
               names='Stg2')
   
@@ -183,7 +183,7 @@ def createResNetV1(inputShape=(128,128,3),
   
   v = resBlkV1(inputs=v,
               numFilters=64,
-              numBlocks=7,
+              numBlocks=3,
               downsampleOnFirst=True,
               names='Stg3')
   
@@ -191,10 +191,18 @@ def createResNetV1(inputShape=(128,128,3),
   
   v = resBlkV1(inputs=v,
               numFilters=128,
-              numBlocks=7,
+              numBlocks=3,
               downsampleOnFirst=True,
               names='Stg4')
   
+  v = Dropout(0.2)(v)
+
+  v = resBlkV1(inputs=v,
+              numFilters=256,
+              numBlocks=3,
+              downsampleOnFirst=True,
+              names='Stg5')
+
   v = Dropout(0.2)(v)
   
   v = AveragePooling2D(pool_size=8,
@@ -203,11 +211,6 @@ def createResNetV1(inputShape=(128,128,3),
   v = Dropout(0.2)(v)
   
   v = Flatten()(v)
-
-  v = Dense(256, activation='relu',
-            kernel_initializer=he_normal(33))(v)
-
-  v = Dropout(0.2)(v)
 
   outputs = Dense(numClasses,
                  activation='softmax',
@@ -253,7 +256,7 @@ LRScheduler     = LearningRateScheduler(lrSchedule)
 filepath        = modelname + ".hdf5"
 checkpoint      = ModelCheckpoint(filepath, 
                                   monitor='val_acc', 
-                                  verbose=0, 
+                                  verbose=1, 
                                   save_best_only=True, 
                                   mode='max')
 
