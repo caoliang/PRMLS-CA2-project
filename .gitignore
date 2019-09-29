@@ -56,3 +56,7 @@ PRMLS_CA2_8191.hdf5
 PRMLS_CA2_8039.hdf5
 PRMLS_CA2_7970.hdf5
 PRMLS_CA2_testing.hdf5
+*.hdf5
+*.h5
+PRMLS-CA2-Submission-20190929.zip
+PRMLS-CA2-Submission/sources/pre-processing/geckodriver/geckodriver.exe
